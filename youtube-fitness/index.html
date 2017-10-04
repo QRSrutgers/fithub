@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>FitHub</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Bootstrap CDN-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Firebase Reference -->
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+</head>
+
+<body>
+    <button id="signin-button">Sign in</button>
+    <button id="signout-button">Sign Out</button>
+    <label>
+        <input id="query" value="leg workouts" type="text">
+        <button id="search-button" disabled>Search</button>
+    </label>
+    </div>
+    <div id="videosGoHere"></div>
+    <script src="assets/java/youtube.js "></script>
+    <!--  for auth.2   <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady "></script> -->
+    <script async defer src="https://apis.google.com/js/api.js " onload="this.onload=function(){};handleClientLoad() " onreadystatechange="if (this.readyState==='complete' ) this.onload()">
+    </script>
+</body>
+
+</html>

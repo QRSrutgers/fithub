@@ -2,7 +2,6 @@ var CLIENT_ID = '432317403557-0tm9npcn21fnb397riijjinkq1cnmpse.apps.googleuserco
 var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest"];
 var SCOPES = 'https://www.googleapis.com/auth/youtube.readonly';
 var videoId = [];
-var link;
 
 googleApiClientReady = function() {
     gapi.auth.init(function() {
@@ -52,6 +51,9 @@ function handleAuthClick(event) {
 function handleSignoutClick(event) {
     gapi.auth2.getAuthInstance().signOut();
     $("#videosGoHere").html("");
+    $("#pic").html("");
+    $("#notes").hide();   
+    $("#userNotes").hide();
 }
 
 function appendPre(message) {
@@ -59,12 +61,8 @@ function appendPre(message) {
     var textContent = document.createTextNode(message + '\n');
     pre.appendChild(textContent);
 }
-
-function createsLocation() {
-    for (var i = 0; i < 5; i++) {
-        $("#videosGoHere").append("<div id='player" + i + "'>here</div><br>");
-    }
-}
+var pic = [];
+var title;
 
 function search() {
     var q = $('#query').val();
@@ -73,17 +71,40 @@ function search() {
         part: 'snippet'
     });
     request.execute(function(response) {
+
         for (var i = 0; i < 5; i++) {
+            title.push(response.items[i].snippet.title);
+
+            pic.push(response.items[i].snippet.thumbnails.high.url);
+
             videoId.push(response.items[i].id.videoId);
-        }
-        for (var i = 0; i < 5; i++) {
-            $("#videosGoHere").append("<iframe id='player" + i + "' src='https://www.youtube.com/embed/" + videoId[i] + "'></iframe><br>");
+            $("#pic").append("<p>" + title[i] + "</p><img class='selection' data-answer-index='" + i + "' src='" + pic[i] + "'><br>");
         }
     });
 }
 
+$("#userNotes").hide();
+$("#notes").hide();
+$("#userNotes").hide();
+
+
+$("body").on("click", ".selection", function() {
+
+    var chosen = ($(this).data("answer-index"));
+
+    $("#videosGoHere ").html("<iframe id='player'src='https://www.youtube.com/embed/" + videoId[chosen] + "'></iframe>");
+
+    $("#userNotes").show();
+    $("#notes").show();
+});
+
 $("#search-button").on("click", function() {
+    title = [];
+    pic = [];
     videoId = [];
+    $("#pic").html("");
     $("#videosGoHere").html("");
     search();
+    $("#userNotes").hide();
+    $("#notes").hide();
 });

@@ -24,6 +24,8 @@ var tolFatUser;
 var satFatUser;
 var foodPic;
 
+
+
 $("#searchButton").on("click", function(event) {
     $("#foodInformation").html("");
     $("#foodImg").html("");
@@ -36,7 +38,8 @@ $("#searchButton").on("click", function(event) {
         "query": $("#foodInput").val(),
         "timezone": "US/Eastern"
     }
-    $.ajax({
+
+     $.ajax({
             url: "https://trackapi.nutritionix.com/v2/natural/nutrients",
             method: "POST",
             headers: {
@@ -76,31 +79,31 @@ $("#searchButton").on("click", function(event) {
 $("#breakfastWell").on("click", function(event) {
     var value = $("#foodInput").val();
     console.log("value", value);
-    $("#breakfastMeal").append("<div>"+ value + "</div>" + " " + caloriesUser + "cals");
+    $("#breakfastMeal").append("<div>"+ value + " " + caloriesUser + "cals" + "</div>");
 
 });
 $("#snackOneWell").on("click", function(event) {
     var value = $("#foodInput").val();
     console.log("value", value);
-    $("#snackOneMeal").append("<div>"+ value + "</div>" + " " + caloriesUser + "cals");
+    $("#snackOneMeal").append("<div>"+ value + " " + caloriesUser + "cals"  + "</div>");
 
 });
 $("#lunchWell").on("click", function(event) {
     var value = $("#foodInput").val();
     console.log("value", value);
-    $("#lunchMeal").append("<div>"+ value + "</div>" + " " + caloriesUser + "cals");
+    $("#lunchMeal").append("<div>"+ value + " " + caloriesUser + "cals"  + "</div>");
 
 });
 $("#snackTwoWell").on("click", function(event) {
     var value = $("#foodInput").val();
     console.log("value", value);
-    $("#snackTwoMeal").append("<div>"+ value + "</div>" + " " + caloriesUser + "cals");
+    $("#snackTwoMeal").append("<div>"+ value + " " + caloriesUser + "cals"  + "</div>");
 
 });
 $("#dinnerWell").on("click", function(event) {
     var value = $("#foodInput").val();
     console.log("value", value);
-    $("#dinnerMeal").append("<div>"+ value + "</div>" + " " + caloriesUser + "cals");
+    $("#dinnerMeal").append("<div>"+ value + " " + caloriesUser + "cals"  + "</div>");
 
 });
 

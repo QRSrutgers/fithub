@@ -32,6 +32,90 @@
             </ul>
         </div>
     </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Search</h4>
+                        <div class="input-group">
+                            <input type="text" id="foodInput" class="form-control" placeholder="Search for a food item..." aria-label="Search for...">
+                            <span class="input-group-btn">
+                            <button id="searchButton" class="btn btn-secondary" type="button">Go!</button></span>
+                        </div>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Add to...
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownButton">
+                                <a id="breakfastWell">Breakfast</a>
+                                <a id="snackOneWell">Snack One</a>
+                                <a id="lunchWell">Lunch</a>
+                                <a id="snackTwoWell">Snack Two</a>
+                                <a id="dinnerWell">Dinner</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card" style="width: 34rem;">
+                    <div class="card-body">
+                        <h3 class="card-title">Food Stats</h3>
+                        <h4 class="card-subtitle mb-2 text-muted">Take a look at the nutrition info!</h4>
+                        <p class="card-text" id="foodImg" alt="img">
+                            <!-- 
+                            <div id="foodImg" alt="img"></div
+                            <div id="foodInformation"></div>"-->
+                        </p>
+                        <p class="card-text" id="foodInformation">
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Food Diary</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title">Breakfast</h6>
+                        <p id="breakfastMeal" class="card-text"></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title">Snack</h6>
+                        <p id="snackOneMeal" class="card-text"></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title">Lunch</h6>
+                        <p id="lunchMeal" class="card-text"></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title">Snack</h6>
+                        <p id="snackTwoMeal" class="card-text"></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title">Dinner</h6>
+                        <p id="dinnerMeal" class="card-text"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="assets/java/nutrition.js"></script>
     <div id="footer" class="col-lg-12 text-center">
         <p>FitHub &copy;</p>
     </div>

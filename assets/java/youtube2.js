@@ -52,7 +52,7 @@ function handleSignoutClick(event) {
     gapi.auth2.getAuthInstance().signOut();
     $("#videosGoHere").html("");
     $("#pic").html("");
-    $("#notes").hide();   
+    $("#notes").hide();
     $("#userNotes").hide();
 }
 
@@ -71,7 +71,7 @@ function search() {
         part: 'snippet'
     });
     request.execute(function(response) {
-
+        console.log(response);
         for (var i = 0; i < 5; i++) {
             title.push(response.items[i].snippet.title);
 
@@ -81,7 +81,39 @@ function search() {
             $("#pic").append("<p>" + title[i] + "</p><img class='selection' data-answer-index='" + i + "' src='" + pic[i] + "'><br>");
         }
     });
-}
+};
+
+$("#staffPickBtn").on("click", function() {
+    $("#videoHome").html("<div class='col-lg-4 text-center'><h3>Kelly's pick</h3><img class='staffVideo' data-index='1'src='https://i.ytimg.com/vi/S0ZAPSKhWRM/hqdefault.jpg'></div><div class='col-lg-4 text-center'><h3>Ray's pick</h3><img class='staffVideo' data-index='2'src= 'https://i.ytimg.com/vi/S0ZAPSKhWRM/hqdefault.jpg'></div><div class='col-lg-4 text-center'><h3>Stephen's pick</h3><img class='staffVideo' data-index='3'src='https://i.ytimg.com/vi/S0ZAPSKhWRM/hqdefault.jpg'></div>");
+
+    $("#videoHome").show();
+    $("#videoSearched").hide();
+
+});
+
+
+$("#newNotesBtn").on("click", function(){
+   $("#videoHome").html("<div class='col-lg-6'><textarea id='newNotes'>Here is where you can add new notes</textarea></div><div class='col-lg-6 text-right' id='notesDisplay'>Notes from local storage will display here</div>"); 
+});
+
+
+$("#videoHome").on("click", ".staffVideo", function() {
+    var staffChosen = ($(this).data("index"));
+    console.log(staffChosen);
+    if (staffChosen == 1) {
+        $("#videoHome").html("<div class='col-lg-6 text-center'><h2>Chest Workout</h2><iframe class='videoFrame' src='https://www.youtube.com/embed/S0ZAPSKhWRM'></iframe></div><div class='col-lg-6 text-right'><h2>Exersice instructions</h2><textarea>3 set of 12-10 reps on bench</textarea>");
+    }
+    if (staffChosen == 2) {
+        $("#videoHome").html("<div class='col-lg-6 text-center'><h2>Chest Workout</h2><iframe class='videoFrame' src='https://www.youtube.com/embed/S0ZAPSKhWRM'></iframe></div><div class='col-lg-6 text-right'><h2>Exersice instructions</h2><textarea id='exampleWork'>3 set of 12-10 reps on bench</textarea>");
+    }
+    if (staffChosen == 3) {
+        $("#videoHome").html("<div class='col-lg-6 text-right'><h2>Chest Workout</h2><iframe class='videoFrame' src='https://www.youtube.com/embed/S0ZAPSKhWRM'></iframe></div><div class='col-lg-6 text-center'><h2>Exersice instructions</h2><textarea>3 set of 12-10 reps on bench</textarea>");
+    }
+});
+
+$("#newNotesBtn").on("click", function() {
+
+})
 
 $("#userNotes").hide();
 $("#notes").hide();
@@ -92,13 +124,15 @@ $("body").on("click", ".selection", function() {
 
     var chosen = ($(this).data("answer-index"));
 
-    $("#videosGoHere ").html("<iframe id='player'src='https://www.youtube.com/embed/" + videoId[chosen] + "'></iframe>");
+    $("#videosGoHere").html("<iframe id='player'src='https://www.youtube.com/embed/" + videoId[chosen] + "'></iframe>");
 
     $("#userNotes").show();
     $("#notes").show();
 });
 
 $("#search-button").on("click", function() {
+    $("#videoSearched").show();
+    $("#videoHome").hide();
     title = [];
     pic = [];
     videoId = [];

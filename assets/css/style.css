@@ -9,12 +9,12 @@
 }
 
 #player {
-    width: 700px;
-    height: 450px;
+    width: 640px;
+    height: 360px;
 }
 
 #userNotes {
-	width: 700px;
+	width: 640px;
 	height: 200px;
 }
 .selection {
@@ -23,17 +23,21 @@
     width: 300px;
     margin-bottom: 10px;
 }
+
 #LOGIN {
 	margin-top: 20px;
 }
 
 #searchBar {
-	float: right;
+	margin: auto;
 }
 
-#signout-button {
-	float: right;
+
+#header1 {
+	border-bottom: 3px solid white;
+	background-color: black;
 }
+
 #header {
 	border-bottom: 3px solid white;
 	background-color: #008B8B;
@@ -43,11 +47,54 @@
 	color:white;
 }
 
+.staffVideo {
+	height: 200px;
+	width: 300px;
+}
+
+#videoHome {
+	margin-top: 25px;
+}
+
+input {
+	width: 250px;
+}
+
+.videoFrame {
+	width: 640px;
+	height: 360px;
+}
+
+p {
+	padding-top: 10px;
+}
+
+#exampleWork {
+	width: 415px;
+	height: 360px;
+}
+
+#buttonGen {
+	height: 45px;
+	/*border-bottom: 2px solid black;*/
+}
+
+#footer {
+	/*width: 1139px;*/
+	position: fixed;
+	bottom: 0;
+	color: white;
+	background: black;
+}
+
 #fix {
 	padding-left: 0;
 }
 
 #fix2{
+	/*position: absolute;
+	top: 0;
+	right: 0;*/
 	padding-left: 60px;
 	padding-right: 0;
 }

@@ -79,31 +79,31 @@ $("#searchButton").on("click", function(event) {
 $("#breakfastWell").on("click", function(event) {
     var value = $("#foodInput").val();
     console.log("value", value);
-    $("#breakfastMeal").append("<div>"+ value + " " + caloriesUser + "cals" + "</div>");
+    $("#breakfastMeal").append("<div>"+ value + " " + caloriesUser + " " + "cals" + "</div>");
 
 });
 $("#snackOneWell").on("click", function(event) {
     var value = $("#foodInput").val();
     console.log("value", value);
-    $("#snackOneMeal").append("<div>"+ value + " " + caloriesUser + "cals"  + "</div>");
+    $("#snackOneMeal").append("<div>"+ value + " " + caloriesUser + " " + "cals"  + "</div>");
 
 });
 $("#lunchWell").on("click", function(event) {
     var value = $("#foodInput").val();
     console.log("value", value);
-    $("#lunchMeal").append("<div>"+ value + " " + caloriesUser + "cals"  + "</div>");
+    $("#lunchMeal").append("<div>"+ value + " " + caloriesUser + " " + "cals"  + "</div>");
 
 });
 $("#snackTwoWell").on("click", function(event) {
     var value = $("#foodInput").val();
     console.log("value", value);
-    $("#snackTwoMeal").append("<div>"+ value + " " + caloriesUser + "cals"  + "</div>");
+    $("#snackTwoMeal").append("<div>"+ value + " " + caloriesUser + " " + "cals"  + "</div>");
 
 });
 $("#dinnerWell").on("click", function(event) {
     var value = $("#foodInput").val();
     console.log("value", value);
-    $("#dinnerMeal").append("<div>"+ value + " " + caloriesUser + "cals"  + "</div>");
+    $("#dinnerMeal").append("<div>"+ value + " " + caloriesUser + " " + "cals"  + "</div>");
 
 });
 

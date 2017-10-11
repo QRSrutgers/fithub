@@ -4,37 +4,39 @@
 <head>
     <title>FitHub</title>
     <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://use.fontawesome.com/86907fa281.js"></script>
     <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
 </head>
 
 <body>
-    <div id="header1" class="row">
-        <div class="col-lg-5 text-center">
-            <h1 id="logo">FitHub</h1>
-        </div>
-        <div id="nav" class="col-lg-5 text-center">
-            <ul class="nav justify-content-center">
-                <li class="nav-item">
-                    <a class="nav-link active" href="home.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="exercise.html">Exercise</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="nutrition.html">Nutrition</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="social.html">Social</a>
-                </li>
-            </ul>
-        </div>
-        <div id="LOGIN" class="col-lg-2 text-center">
-            <button type="button" class="btn btn-danger" id="signin-button">Sign in</button>
-            <button type="button" class="btn btn-danger" id="signout-button">Sign Out</button>
+    <div id="fixedHeader">
+        <div id="header1" class="row">
+            <div class="col-lg-5 text-center">
+                <h1 id="logo">FitHub</h1>
+            </div>
+            <div id="nav" class="col-lg-5 text-center">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="exercise.html">Exercise</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="nutrition.html">Nutrition</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="social.html">Social</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="LOGIN" class="col-lg-2 text-center">
+                <button type="button" class="btn btn-danger" id="signin-button">Sign in</button>
+                <button type="button" class="btn btn-danger" id="signout-button">Sign Out</button>
+            </div>
         </div>
     </div>
     <div class="container">

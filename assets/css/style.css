@@ -136,6 +136,9 @@ p {
 	color: #5f5f5f;
 }
 
+#nutri_container {
+    padding-bottom: 70px;
+}
 .container {
     padding-bottom: 50px;
 }

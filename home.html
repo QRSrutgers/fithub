@@ -15,6 +15,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <!--CSS-->
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- MomentJS Reference -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     <!--Font Awesome Link -->
     <script src="https://use.fontawesome.com/86907fa281.js"></script>
     <!--Firebase -->
@@ -51,7 +53,7 @@
         </div>
     </div>
     <br>
-    <div class="container">
+    <div class="container" id="homeContainer">
         <div class="row">
             <div class="col-lg-7">
                 <div class="card bg-dark text-white">
@@ -69,11 +71,58 @@
                         Your Hub
                     </div>
                     <div class="card-body">
-                        <h6 class="card-title">How are you doing today?</h6>
-                        <h5 id="calorieCounter" class="card-title">Today's Calories:</h5>
-                        <h5 id="calorieLeft" class="card-title">Calories Left:</h5>
-                        <!-- <p class="card-text">With supporting text below as a natural lead-in to content.</p> -->
-                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                        <h5 class="card-title">How are you doing today?</h5>
+                        <h6 id="currentWeight" class="card-title">Current Weight:</h6>
+                        <h6 id="goalWeight" class="card-title">Goal Weight:</h6>
+                        <br>
+                        <h5 class="card-title">Reminders:</h5>
+                        <ul>
+                            <li> Sleep at least 8 hours</li>
+                            <li> Drink 8 glasses of water</li>
+                        </ul>
+                        <p class="card-text"><small class="text-muted">Update today's hub! <span><i id="updYourHub" class="fa fa-cog" aria-hidden="true"></i></span></small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card-group">
+                    <div class="card">
+                        <img class="card-img-top" src="assets/css/images/meal_prep.jpeg" alt="Card image cap" height="200">
+                        <div class="card-body">
+                            <h4 class="card-title">Nutrition Hub</h4>
+                            <p class="card-text">
+                                <h5 id="calorieCounter" class="card-title">Today's Calories:</h5>
+                                <h5 id="calorieLeft" class="card-title">Calories Left:</h5>
+                            </p>
+                            <p class="card-text"><small class="text-muted">Update today's hub! <span><i id="updNutrHub" class="fa fa-cog" aria-hidden="true"></i></span></small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card-group">
+                    <div class="card">
+                        <img class="card-img-top" src="assets/css/images/kettlebell.jpeg" alt="Card image cap" height="200">
+                        <div class="card-body">
+                            <h4 class="card-title">Fitness Hub</h4>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><small class="text-muted">Update today's hub! <span><i id="updFitnessHub" class="fa fa-cog" aria-hidden="true"></i></span></small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card-group">
+                    <div class="card">
+                        <img class="card-img-top" src="assets/css/images/group_cycle_2.jpeg" alt="Card image cap" height="200">
+                        <div class="card-body">
+                            <h4 class="card-title">Social Hub</h4>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><small class="text-muted">Update today's hub! <span><i id="updSocialHub" class="fa fa-cog" aria-hidden="true"></i></span></small></p>
+                        </div>
                     </div>
                 </div>
             </div>

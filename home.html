@@ -46,6 +46,95 @@
         </div>
     </div>
     <br>
+    <!--Modals -->
+    <!-- Your Hub Modal -->
+    <div class="modal" id="myHubModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Your Hub</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <div class="form-group">
+                            <label for="cweight-input">Current Weight:</label>
+                            <input class="form-control" id="cweight" type="number">
+                        </div>
+                        <div class="form-group">
+                            <label for="tweight-input">Target Weight:</label>
+                            <input class="form-control" id="tweight" type="number">
+                        </div>
+                        <div class="form-group">
+                            <label for="comment-input">Set a reminder for today's fitness goal:</label>
+                            <textarea class="form-control" id="comment-input" rows="5"></textarea>
+                        </div>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button id="save-changes-yourHub" type="button" class="btn btn-dark">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Nutrition Hub Modal -->
+    <div class="modal" id="myNutriModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Your Nutrition Hub</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <div class="form-group">
+                            <label for="calorie-mod-input"> Add some calories:</label>
+                            <input class="form-control" id="cal-mod" type="number">
+                        </div>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button id="save-changes-nutri" type="button" class="btn btn-dark">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fitness Hub Modal -->
+    <div class="modal" id="myFitModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Your Fitness Hub</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <div class="form-group">
+                            <label for="body-input">What part of the body did you work on?</label>
+                            <input class="form-control" id="bodyWork" type="string">
+                        </div>
+                        <div class="form-group">
+                            <label for="cardio-input">What kind of cardio did you do?</label>
+                            <input class="form-control" id="cardio" type="string">
+                        </div>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button id="save-changes-fit" type="button" class="btn btn-dark">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Water Progress Bar -->
     <div class="container">
         <h5 id="waterBadge">Water    <span class="badge badge-secondary"></span><i id="droplet" class="fa fa-tint" aria-hidden="true"></i></h5>
         <div class="progress">
@@ -53,6 +142,7 @@
         </div>
     </div>
     <br>
+    <!-- Container with main content -->
     <div class="container" id="homeContainer">
         <div class="row">
             <div class="col-lg-7">
@@ -60,8 +150,8 @@
                     <img class="card-img" id="running_img" src="assets/css/images/trail_running.jpeg" alt="Card image">
                     <div class="card-img-overlay">
                         <h1 class="card-title">Hello, User!</h1>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text">Last updated 3 mins ago</p>
+                        <p id="todayDate" class="card-text"> This is where we will display todays date!</p>
+                        <p class="card-text">Maybe insert the time here?</p>
                     </div>
                 </div>
             </div>
@@ -72,15 +162,16 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">How are you doing today?</h5>
-                        <h6 id="currentWeight" class="card-title">Current Weight:</h6>
-                        <h6 id="goalWeight" class="card-title">Goal Weight:</h6>
+                        <h6 id="currentWeight" class="card-title">Current Weight: <span id="cweight-display"></span> lbs.</h6>
+                        <h6 id="goalWeight" class="card-title">Goal Weight: <span id="tweight-display"></span> lbs.</h6>
                         <br>
-                        <h5 class="card-title">Reminders:</h5>
+                        <h5 class="card-title">Todays reminder: <span id="comment-display"></h5>
                         <ul>
-                            <li> Sleep at least 8 hours</li>
-                            <li> Drink 8 glasses of water</li>
                         </ul>
-                        <p class="card-text"><small class="text-muted">Update today's hub! <span><i id="updYourHub" class="fa fa-cog" aria-hidden="true"></i></span></small></p>
+                        <!-- Trigger modal for user input -->
+                        <p class="card-text"><small class="text-muted">Update today's hub! <span><i id="updYourHub" class="fa fa-cog" aria-hidden="true" data-toggle="modal" data-target="#myHubModal"></i>
+                        </span></small>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -93,11 +184,13 @@
                         <img class="card-img-top" src="assets/css/images/meal_prep.jpeg" alt="Card image cap" height="200">
                         <div class="card-body">
                             <h4 class="card-title">Nutrition Hub</h4>
+                            <h7 class="card-title">Log today's calorie intake:</h7>
                             <p class="card-text">
-                                <h5 id="calorieCounter" class="card-title">Today's Calories:</h5>
+                                <h5 id="calorieCounter" class="card-title">Today's Calories: <span id="cal-eaten-display"></span></h5>
                                 <h5 id="calorieLeft" class="card-title">Calories Left:</h5>
                             </p>
-                            <p class="card-text"><small class="text-muted">Update today's hub! <span><i id="updNutrHub" class="fa fa-cog" aria-hidden="true"></i></span></small></p>
+                            <!-- Trigger modal for user input -->
+                            <p class="card-text"><small class="text-muted">Update today's hub! <span><i id="updNutrHub" class="fa fa-cog" aria-hidden="true" data-toggle="modal" data-target="#myNutriModal"></i></span></small></p>
                         </div>
                     </div>
                 </div>
@@ -108,8 +201,13 @@
                         <img class="card-img-top" src="assets/css/images/kettlebell.jpeg" alt="Card image cap" height="200">
                         <div class="card-body">
                             <h4 class="card-title">Fitness Hub</h4>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Update today's hub! <span><i id="updFitnessHub" class="fa fa-cog" aria-hidden="true"></i></span></small></p>
+                            <h7 class="card-title">Log today's excercise:</h7>
+                            <p class="card-text">
+                                <h5 id="exerciseType" class="card-title">Weight Training: <span id="body-work-display"></h5>
+                                <h5 id="cardioType" class="card-title">Cardio: <span id="cardio-display"></h5>
+                            </p>
+                            <!-- Trigger modal for user input -->
+                            <p class="card-text"><small class="text-muted">Update today's hub! <span><i id="updFitnessHub" class="fa fa-cog" aria-hidden="true" data-toggle="modal" data-target="#myFitModal"></i></span></small></p>
                         </div>
                     </div>
                 </div>
@@ -120,7 +218,12 @@
                         <img class="card-img-top" src="assets/css/images/group_cycle_2.jpeg" alt="Card image cap" height="200">
                         <div class="card-body">
                             <h4 class="card-title">Social Hub</h4>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <h7 class="card-title">Any upcoming events today?</h7>
+                            <p class="card-text">
+                                <h5 id="socialType" class="card-title">Upcoming events:</h5>
+                                <h7 id="findSocialType" class="card-title">Nothing planned? </h7>
+                                <h6>Explore Meetup now! <span><i id="meetupIcon" class="fa fa-meetup" aria-hidden="true"></i></span></h6>
+                            </p>
                             <p class="card-text"><small class="text-muted">Update today's hub! <span><i id="updSocialHub" class="fa fa-cog" aria-hidden="true"></i></span></small></p>
                         </div>
                     </div>
@@ -131,6 +234,8 @@
     <div id="footer" class="col-lg-12 text-center">
         <p>FitHub &copy;</p>
     </div>
+
+    <script type="text/javascript" src="assets/java/home.js"></script>
 </body>
 
 </html>

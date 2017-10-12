@@ -27,7 +27,7 @@
 #notes {
     position: fixed;
     top: 61%;
-    right: 55%;
+    right: 51%;
     padding-top: 10px;
 }
 
@@ -36,6 +36,11 @@
     height: 200px;
     width: 300px;
     margin-bottom: 10px;
+}
+
+#newNotes {
+    width: 100%;
+    height: 400px;
 }
 
 #LOGIN {
@@ -67,7 +72,8 @@
 }
 
 #videoHome {
-    margin-top: 25px;
+    margin-top: 150px;
+
 }
 
 input {
@@ -94,7 +100,6 @@ p {
 }
 
 #footer {
-    /*width: 1139px;*/
     position: fixed;
     bottom: 0;
     color: white;
@@ -105,10 +110,16 @@ p {
     padding-left: 0;
 }
 
+#notesDisplay {
+    border: 2px solid black;
+}
+
+#staffNotes {
+    width: 80%;
+    height: 360px;
+}
+
 #fix2 {
-    /*position: absolute;
-	top: 0;
-	right: 0;*/
     padding-left: 60px;
     padding-right: 0;
 }

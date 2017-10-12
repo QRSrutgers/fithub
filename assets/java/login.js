@@ -31,6 +31,10 @@ $("#btnLogin").on("click", e => {
     const promise = auth.signInWithEmailAndPassword(email, pass);
     promise.catch(e => console.log(e.message))
 
+    $("#emailBox").html(" ");
+    $("#passwordBox").html(" ");
+
+
 });
 
 $("#btnLogOut").on("click", e => {
@@ -56,6 +60,7 @@ auth.onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
         console.log(firebaseUser);
         btnLogOut.classList.remove("hide");
+        // window.location = "home.html";
     } else {
         console.log("Not logged in");
         btnLogOut.classList.add("hide");

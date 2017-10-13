@@ -1,16 +1,26 @@
 //On click event for page navs
 $("#nutriArrow").on("click", function() {
-    window.location.href="nutrition.html";
+    window.location.href = "nutrition.html";
 });
 //On click event for page navs
 $("#excerciseArrow").on("click", function() {
-    window.location.href="exercise.html";
+    window.location.href = "exercise.html";
 });
 //On click event for page navs
 $("#socialArrow").on("click", function() {
-    window.location.href="social.html";
+    window.location.href = "social.html";
 });
 
+function timer() {
+    timerForClock = setInterval(function() {
+        var currentTime = moment().format("MMMM Do YYYY, h:mm:ss a");
+
+        $("#actualTimeDisplay").html(currentTime);
+    }, 1000);
+
+};
+
+timer();
 
 // Capture Button Click for Your Hub
 $("#save-changes-yourHub").on("click", function(event) {

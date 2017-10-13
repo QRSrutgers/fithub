@@ -52,6 +52,7 @@ $("#droplet").on("click", function(e) {
     localStorage.setItem("WaterBar", progress);
 })
 
+
 // Capture Button Click for Your Hub
 $("#save-changes-yourHub").on("click", function(event) {
     // prevent page from refreshing when form tries to submit itself

@@ -7,26 +7,26 @@ var convertedTime = [];
 
 
 $(".event-selection").on("click", function() {
-    $("#event").html("");
-    nameOfEvent = [];
-    convertedTime = [];
-    linkForEvent = [];
-    timeEvent = [];
-    timeEventNew = [];
+            $("#event").html("");
+            nameOfEvent = [];
+            convertedTime = [];
+            linkForEvent = [];
+            timeEvent = [];
+            timeEventNew = [];
 
-    chosen = $(this).attr("value");
+            chosen = $(this).attr("value");
 
-    var queryURL =
-        "https://cors-anywhere.herokuapp.com/https://api.meetup.com/recommended/events?&sign=true&photo-host=public&zip=07834&page=20&topic_category=" + chosen + "&key=555640661059337510695f1732630"
+            var queryURL =
+                "https://cors-anywhere.herokuapp.com/https://api.meetup.com/recommended/events?&sign=true&photo-host=public&zip=07834&page=20&topic_category=" + chosen + "&key=555640661059337510695f1732630"
 
 
-    $.ajax({
-            url: queryURL,
-            method: "GET"
-        })
-        .done(function(response) {
-            console.log(response);
-            for (var i = 0; i < 5; i++) {
+            $.ajax({
+                    url: queryURL,
+                    method: "GET"
+                })
+                .done(function(response) {
+                    console.log(response);
+                    for (var i = 0; i < 5; i++) {
 
                 nameOfEvent.push(response[i].name);
 
@@ -40,7 +40,7 @@ $(".event-selection").on("click", function() {
                     console.log("Time Event:" + timeEvent);
 
                 timeEventNew.push(moment(timeEvent[i], "X"));
-                    console.log("TimeEventNew:" + timeEventNew);tim
+                    console.log("TimeEventNew:" + timeEventNew);
 
                 convertedTime.push(moment(timeEventNew[i]).format("MM/DD/YYYY, HH:MM"));
                     console.log("Converted time" + convertedTime);
@@ -50,4 +50,4 @@ $(".event-selection").on("click", function() {
             }
 
         });
-});
+        });

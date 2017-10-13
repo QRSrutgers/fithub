@@ -52,6 +52,30 @@ if (sumCals == null) {
     sumCals = parseInt(sumCals);
 }
 
+$("#calorieLimit").on("click", function(e) {
+    e.preventDefault();
+
+    calLimit = parseInt($("#cal-limit").val().trim());
+
+    calLimitDisplay = parseInt($("#cal-limit").val().trim());
+
+    $("#cal-limit-display").text(calLimitDisplay);
+    $("#cal-eaten-display").text(0);
+    $("#cal-left-display").text(0);
+
+    sumCals = 0;
+
+    calsLeft = 0;
+
+    calEaten = 0;
+
+    localStorage.setItem("calLimitDisplay", calLimitDisplay);
+
+});
+
+var calLimit = localStorage.getItem("calLimit");
+
+var calsLeft = localStorage.getItem("calsLeft");
 
 // Capture Button Click for Nutrition Hub
 $("#save-changes-nutri").on("click", function(event) {
@@ -59,24 +83,34 @@ $("#save-changes-nutri").on("click", function(event) {
     event.preventDefault();
 
     // Capture user inputs and store them into variables
-    var calEaten = parseInt($("#cal-mod").val().trim());
-    var calLimit = parseInt($("#cal-limit").val().trim());
+
+    var calEaten = $("#cal-mod").val().trim();
+
+    if (calEaten !== "") {
+        calEaten = parseInt(calEaten);
+    } else {
+        calEaten = 0;
+    }
 
     sumCals += calEaten;
 
-    console.log(sumCals);
+    calsLeft = calLimit -= calEaten;
+
+    console.log(calsLeft);
 
     // Replaces the content in the div with the new info
     $("#cal-eaten-display").text(sumCals);
-    $("#cal-limit-display").text(calLimit);
+    $("#cal-left-display").text(calsLeft);
+
 
     //Clear localStorage
     // //localStorage.clear();
     // localStorage.removeItem("calEaten");
 
     // Store all content into localStorage
+    localStorage.setItem("calLimit", calLimit);
     localStorage.setItem("sumCals", sumCals);
-    localStorage.setItem("limitCals", calLimit);
+    localStorage.setItem("calsLeft", calsLeft);
 
     //TODO I NEED HELP PARSE ADDING THESE ADDITIONAL VALUES!
 });
@@ -114,6 +148,7 @@ $("#cweight-display").text(localStorage.getItem("cweight"));
 $("#tweight-display").text(localStorage.getItem("tweight"));
 $("#comment-display").text(localStorage.getItem("comment"));
 $("#cal-eaten-display").text(localStorage.getItem("sumCals"));
-$("#cal-limit-display").text(localStorage.getItem("limitCals"));
+$("#cal-limit-display").text(localStorage.getItem("calLimitDisplay"));
+$("#cal-left-display").text(localStorage.getItem("calsLeft"));
 $("#body-work-display").text(localStorage.getItem("bodyWork"));
 $("#cardio-display").text(localStorage.getItem("cardio"));

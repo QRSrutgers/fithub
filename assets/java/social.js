@@ -15,19 +15,20 @@ $(".event-selection").on("click", function() {
     timeEventNew = [];
     // displayTime = [];
 
-    chosen = $(this).attr("value");
 
-    var queryURL =
-        "https://cors-anywhere.herokuapp.com/https://api.meetup.com/recommended/events?&sign=true&photo-host=public&zip=07834&page=20&topic_category=" + chosen + "&key=555640661059337510695f1732630"
+            chosen = $(this).attr("value");
+
+            var queryURL =
+                "https://cors-anywhere.herokuapp.com/https://api.meetup.com/recommended/events?&sign=true&photo-host=public&zip=07834&page=20&topic_category=" + chosen + "&key=555640661059337510695f1732630"
 
 
-    $.ajax({
-            url: queryURL,
-            method: "GET"
-        })
-        .done(function(response) {
-            console.log(response);
-            for (var i = 0; i < 5; i++) {
+            $.ajax({
+                    url: queryURL,
+                    method: "GET"
+                })
+                .done(function(response) {
+                    console.log(response);
+                    for (var i = 0; i < 5; i++) {
 
                 nameOfEvent.push(response[i].name);
 
@@ -54,4 +55,4 @@ $(".event-selection").on("click", function() {
             }
 
         });
-});
+        });

@@ -84,7 +84,7 @@ function search() {
 };
 
 $("#staffPickBtn").on("click", function() {
-    $("#videoHome").html("<div class='col-lg-4 text-center'><h3>Kelly's pick</h3><img class='staffVideo' data-index='1'src='https://i.ytimg.com/vi/S0ZAPSKhWRM/hqdefault.jpg'></div><div class='col-lg-4 text-center'><h3>Ray's pick</h3><img class='staffVideo' data-index='2'src= 'https://i.ytimg.com/vi/S0ZAPSKhWRM/hqdefault.jpg'></div><div class='col-lg-4 text-center'><h3>Stephen's pick</h3><img class='staffVideo' data-index='3'src='https://i.ytimg.com/vi/S0ZAPSKhWRM/hqdefault.jpg'></div>");
+    $("#videoHome").html("<div class='col-lg-4 text-center'><h3>Kelly's pick</h3><img class='staffVideo' data-index='1'src='https://i.ytimg.com/vi/S0ZAPSKhWRM/hqdefault.jpg'></div><div class='col-lg-4 text-center'><h3>Ray's pick</h3><img class='staffVideo' data-index='2'src= 'https://i.ytimg.com/vi/ZtlH0A5dlLg/hqdefault.jpg'></div><div class='col-lg-4 text-center'><h3>Stephen's pick</h3><img class='staffVideo' data-index='3'src='https://i.ytimg.com/vi/S0ZAPSKhWRM/hqdefault.jpg'></div>");
 
     $("#videoHome").show();
     $("#videoSearched").hide();
@@ -104,13 +104,13 @@ $("#videoHome").on("click", ".staffVideo", function() {
     var staffChosen = ($(this).data("index"));
     console.log(staffChosen);
     if (staffChosen == 1) {
-        $("#videoHome").html("<div class='col-lg-6 text-center'><h2>Chest Workout</h2><iframe class='videoFrame' src='https://www.youtube.com/embed/ZtlH0A5dlLg'></iframe></div><div class='col-lg-6 text-right'><h2>Exersice instructions</h2><textarea>#1Barbell Bench Press: 3 sets of 20,15,10 reps. #2 Incline Dumbbell Press: 2 sets of 10-12 reps to failure. #3 Flat Dumbbell Fly: 2 sets of 15 reps to failure. #4 Bar Dip: 3 sets to failure. #5 Push-Up: 100 reps. Link: https://www.bodybuilding.com/content/5-best-exercises-for-a-bigger-chest.html</textarea>");
+        $("#videoHome").html("<div class='col-lg-6 text-center'><h2>Chest Workout</h2><iframe class='videoFrame' src='https://www.youtube.com/embed/ZtlH0A5dlLg'></iframe></div><div id='center1' class='col-lg-6 text-right'><h2>Exersice instructions</h2><textarea>#1Barbell Bench Press: 3 sets of 20,15,10 reps. #2 Incline Dumbbell Press: 2 sets of 10-12 reps to failure. #3 Flat Dumbbell Fly: 2 sets of 15 reps to failure. #4 Bar Dip: 3 sets to failure. #5 Push-Up: 100 reps. Link: https://www.bodybuilding.com/content/5-best-exercises-for-a-bigger-chest.html</textarea>");
     }
     if (staffChosen == 2) {
-        $("#videoHome").html("<div class='col-lg-6 text-center'><h2>Chest Workout</h2><iframe class='videoFrame' src='https://www.youtube.com/embed/ZtlH0A5dlLg'></iframe></div><div class='col-lg-6 text-right'><h2>Exersice instructions</h2><textarea id='staffNotes'>#1Barbell Bench Press: 3 sets of 20,15,10 reps. #2Incline Dumbbell Press: 2 sets of 10-12 reps to failure. #3Flat Dumbbell Fly: 2 sets of 15 reps to failure. #4Bar Dip: 3 sets to failure. #5Push-Up: 100 reps.<a href='https://www.bodybuilding.com/content/5-best-exercises-for-a-bigger-chest.html'>More information</a></textarea>");
+        $("#videoHome").html("<div id='center' class='col-lg-6'><h2>Chest Workout</h2><iframe class='videoFrame' src='https://www.youtube.com/embed/ZtlH0A5dlLg'></iframe></div><div id='center1' class='col-lg-6'><h2>Exersice instructions</h2><textarea id='staffNotes'>#1Barbell Bench Press: 3 sets of 20,15,10 reps. #2Incline Dumbbell Press: 2 sets of 10-12 reps to failure. #3Flat Dumbbell Fly: 2 sets of 15 reps to failure. #4Bar Dip: 3 sets to failure. #5Push-Up: 100 reps.<a href='https://www.bodybuilding.com/content/5-best-exercises-for-a-bigger-chest.html'>More information</a></textarea>");
     }
     if (staffChosen == 3) {
-        $("#videoHome").html("<div class='col-lg-6 text-right'><h2>Chest Workout</h2><iframe class='videoFrame' src='https://www.youtube.com/embed/S0ZAPSKhWRM'></iframe></div><div class='col-lg-6 text-center'><h2>Exersice instructions</h2><textarea>3 set of 12-10 reps on bench</textarea>");
+        $("#videoHome").html("<div class='col-lg-6 text-right'><h2>Chest Workout</h2><iframe class='videoFrame' src='https://www.youtube.com/embed/S0ZAPSKhWRM'></iframe></div><div id='center1' class='col-lg-6 text-center'><h2>Exersice instructions</h2><textarea id='staffNotes'>#1Barbell Bench Press: 3 sets of 20,15,10 reps. #2Incline Dumbbell Press: 2 sets of 10-12 reps to failure. #3Flat Dumbbell Fly: 2 sets of 15 reps to failure. #4Bar Dip: 3 sets to failure. #5Push-Up: 100 reps.<a href='https://www.bodybuilding.com/content/5-best-exercises-for-a-bigger-chest.html'>More information</a></textarea>");
     }
 });
 

@@ -94,35 +94,35 @@ $(document).ready(function() {
   $("#breakfastWell").on("click", function(event) {
     var value = $("#foodInput").val();
     console.log("value", value);
-    $("#breakfastMeal").append("<div>" + value + " " + "<span>" + caloriesUser + "</span>" + "cals" + "</div>");
+    $("#breakfastMeal").append("<div>" + value + " " + caloriesUser + " cals" + "</div>");
     localStorage.setItem("breakfastMealSaved", value);
   });
 
   $("#snackOneWell").on("click", function(event) {
     var value = $("#foodInput").val();
     console.log("value", value);
-    $("#snackOneMeal").append("<div>" + value + " " + "<span>" + caloriesUser + "</span>" + "cals" + "</div>");
+    $("#snackOneMeal").append("<div>" + value + " " + caloriesUser + " cals" + "</div>");
     localStorage.setItem("snackOneSaved", value);
 
   });
   $("#lunchWell").on("click", function(event) {
     var value = $("#foodInput").val();
     console.log("value", value);
-    $("#lunchMeal").append("<div>" + value + " " + "<span>" + caloriesUser + "</span>" + "cals" + "</div>");
+    $("#lunchMeal").append("<div>" + value + " " + caloriesUser + " cals" + "</div>");
     localStorage.setItem("lunchSaved", value);
 
   });
   $("#snackTwoWell").on("click", function(event) {
     var value = $("#foodInput").val();
     console.log("value", value);
-    $("#snackTwoMeal").append("<div>" + value + " " + "<span>" + caloriesUser + "</span>" + "cals" + "</div>");
+    $("#snackTwoMeal").append("<div>" + value + " " + caloriesUser + " cals" + "</div>");
     localStorage.setItem("snackTwoSaved", value);
 
   });
   $("#dinnerWell").on("click", function(event) {
     var value = $("#foodInput").val();
     console.log("value", value);
-    $("#dinnerMeal").append("<div>" + value + " " + "<span>" + caloriesUser + "</span>" + "cals" + "</div>");
+    $("#dinnerMeal").append("<div>" + value + " " + caloriesUser + " cals" + "</div>");
     localStorage.setItem("dinnerSaved", value);
 
   });

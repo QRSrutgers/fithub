@@ -77,7 +77,8 @@
 }
 
 #videoHome {
-    margin-top: 130px;
+    margin-top: 150px;
+
 }
 
 input {
@@ -155,18 +156,9 @@ p {
     padding-bottom: 70px;
 }
 
+#homeContainer {
+    padding-bottom: 100px;
+}
 .container {
     padding-bottom: 50px;
-}
-
-@media screen and (min-width: 800px) {
-    #center1 {
-        text-align: right;
-    }
-}
-
-@media screen and (min-width: 600px) {
-    #center1 {
-        text-align: center;
-    }
 }

@@ -25,10 +25,10 @@
 
 <body>
     <div id="header1" class="row">
-        <div class="col-lg-5 text-center">
-            <h1 id="logo">FitHub</h1>
+        <div class="col-lg-7 text-left">
+            <h1 id="logo">FitHub <span><i class="fa fa-spinner" aria-hidden="true"></i></span></h1>
         </div>
-        <div id="nav" class="col-lg-6 text-center">
+        <!-- <div id="nav" class="col-lg-5 text-center">
             <ul class="nav justify-content-center">
                 <li class="nav-item">
                     <a class="nav-link active" href="home.html">Home</a>
@@ -43,7 +43,7 @@
                     <a class="nav-link" href="social.html">Social</a>
                 </li>
             </ul>
-        </div>
+        </div> -->
     </div>
     <br>
     <!--Modals -->
@@ -162,14 +162,14 @@
             <div class="col-lg-5">
                 <div class="card">
                     <div class="card-header">
-                        Your Hub
+                        <span><i class="fa fa-user" aria-hidden="true"></i></span>  Your Hub 
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">How are you doing today?</h5>
                         <h6 id="currentWeight" class="card-title">Current Weight: <span id="cweight-display"></span> lbs.</h6>
                         <h6 id="goalWeight" class="card-title">Goal Weight: <span id="tweight-display"></span> lbs.</h6>
                         <br>
-                        <h5 class="card-title">Todays reminder: <span id="comment-display"></h5>
+                        <h5 class="card-title">Today's reminder: <span id="comment-display"></h5>
                         <ul>
                         </ul>
                         <!-- Trigger modal for user input -->
@@ -185,9 +185,10 @@
             <div class="col-lg-4">
                 <div class="card-group">
                     <div class="card">
-                        <img class="card-img-top" src="assets/css/images/meal_prep.jpeg" alt="Card image cap" height="200">
+                        <img class="card-img-top" src="assets/css/images/meal_prep_6.jpeg" alt="Card image cap" height="200">
                         <div class="card-body">
-                            <h4 class="card-title">Nutrition Hub</h4>
+                            <h4 class="card-title">Nutrition Hub <span><i id="nutriArrow" class="fa fa-arrow-circle-right" aria-hidden="true"></i></span>
+                            </h4>
                             <h7 class="card-title">Log today's calorie intake:</h7>
                             <p class="card-text">
                                 <h5 id="calorieCounter" class="card-title">Today's Calories: <span id="cal-eaten-display"></span></h5>
@@ -204,7 +205,8 @@
                     <div class="card">
                         <img class="card-img-top" src="assets/css/images/kettlebell.jpeg" alt="Card image cap" height="200">
                         <div class="card-body">
-                            <h4 class="card-title">Fitness Hub</h4>
+                            <h4 class="card-title">Fitness Hub <span><i id="excerciseArrow" class="fa fa-arrow-circle-right" aria-hidden="true"></i></span>
+                            </h4>
                             <h7 class="card-title">Log today's excercise:</h7>
                             <p class="card-text">
                                 <h5 id="exerciseType" class="card-title">Weight Training: <span id="body-work-display"></h5>
@@ -221,7 +223,8 @@
                     <div class="card">
                         <img class="card-img-top" src="assets/css/images/group_cycle_2.jpeg" alt="Card image cap" height="200">
                         <div class="card-body">
-                            <h4 class="card-title">Social Hub</h4>
+                            <h4 class="card-title">Social Hub <span><i id="socialArrow" class="fa fa-arrow-circle-right" aria-hidden="true"></i></span>
+                            </h4>
                             <h7 class="card-title">Any upcoming events today?</h7>
                             <p class="card-text">
                                 <h5 id="socialType" class="card-title">Upcoming events:</h5>
@@ -236,7 +239,7 @@
         </div>
     </div>
     <div id="footer" class="col-lg-12 text-center">
-        <p>FitHub &copy;</p>
+        <p>FitHub &copy; 2017</p>
     </div>
     <script type="text/javascript" src="assets/java/home.js"></script>
 </body>

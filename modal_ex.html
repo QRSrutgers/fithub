@@ -1,0 +1,124 @@
+!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sign-Up Today!</title>
+    <!-- Bootstrap -->
+    <!-- Bootstrap CDN-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Firebase Reference -->
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <br>
+        <!-- Jumbotron -->
+        <div class="jumbotron">
+            <h1 class="text-center">Fit Hub</h1>
+        </div>
+        <div class="row">
+            <!-- Sign-Up Panel-->
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">My Fitness Goals</button>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Enter Your Goals:</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="name-input">Name:</label>
+                                <input class="form-control" id="name-input" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="cweight-input">Current Weight:</label>
+                                <input class="form-control" id="cweight" type="number">
+                            </div>
+                            <div class="form-group">
+                                <label for="tweight-input">Target Weight:</label>
+                                <input class="form-control" id="tweight" type="number">
+                            </div>
+                            <div class="form-group">
+                                <label for="comment-input">How would you describe your other fitness goals?</label>
+                                <textarea class="form-control" id="comment-input" rows="5"></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-default" id="add-user" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Most Recent Member Panel -->
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Your Profile</h3>
+                    </div>
+                    <div class="panel-body" id="recent-member">
+                        <h2 id="name-display"></h2>
+                        <h4>I now weigh <span id="cweight-display"></span> lbs.</h4>
+                        <h4>I hope to weigh <span id="tweight-display"></span> lbs.</h4>
+                        <h4><span id="comment-display"></span></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- JavaScript -->
+    <script>
+    // Capture Button Click
+    $("#add-user").on("click", function(event) {
+        // prevent page from refreshing when form tries to submit itself
+        event.preventDefault();
+
+        // Capture user inputs and store them into variables
+        var name = $("#name-input").val().trim();
+        var cweight = $("#cweight").val().trim();
+        var tweight = $("#tweight").val().trim();
+        var comment = $("#comment-input").val().trim();
+
+        // Console log each of the user inputs to confirm we are receiving them
+        console.log(name);
+        console.log(cweight);
+        console.log(tweight);
+
+        // Replaces the content in the "recent-member" div with the new info
+        $("#name-display").text(name);
+        $("#cweight-display").text(cweight);
+        $("#tweight-display").text(tweight);
+        $("#comment-display").text(comment);
+
+        // Clear localStorage
+        //localStorage.clear();
+        localStorage.removeItem("name");
+        localStorage.removeItem("cweight");
+        localStorage.removeItem("tweight");
+        localStorage.removeItem("comment");
+
+        // Store all content into localStorage
+        localStorage.setItem("name", name);
+        localStorage.setItem("cweight", cweight);
+        localStorage.setItem("tweight", tweight);
+        localStorage.setItem("comment", comment);
+    });
+
+    // By default display the content from localStorage
+    $("#name-display").text(localStorage.getItem("name"));
+    $("#cweight-display").text(localStorage.getItem("cweight"));
+    $("#tweight-display").text(localStorage.getItem("tweight"));
+    $("#comment-display").text(localStorage.getItem("comment"));
+    </script>
+</body>
+
+</html>

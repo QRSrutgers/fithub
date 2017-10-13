@@ -14,10 +14,10 @@
 
 <body>
     <div id="header1" class="row">
-        <div class="col-lg-5 text-center">
-            <h1 id="logo">FitHub</h1>
+        <div class="col-lg-7 text-left">
+            <h1 id="logo">FitHub <span><i class="fa fa-spinner" aria-hidden="true"></i></span></h1>
         </div>
-        <div id="nav" class="col-lg-6 text-center">
+        <div id="nav" class="col-lg-5 text-center">
             <ul class="nav justify-content-center">
                 <li class="nav-item">
                     <a class="nav-link active" href="home.html">Home</a>
@@ -34,20 +34,45 @@
             </ul>
         </div>
     </div>
-    <div class="container">
+    <br>
+    <div class="container" id="socialContainer">
         <div id="eventsMain" class="row">
             <div id="fix" class="col-lg-5">
-                <div class="event-selection" value="282">Sports And Fitness</div>
-                <div class="event-selection" value="242">Outdoors and Adventures</div>
-                <div class="event-selection" value="302">Health and Wellness</div>
+                <div class="card" style="width: 20rem;">
+                    <img class="card-img-top" src="assets/css/images/yoga.jpeg" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title">Meetup Events</h4>
+                        <h7 class="card-text">Click on one of the following to find oppurtunities in your area!</h7>
+                        <br>
+                        <br>
+                        <div class="event-selection" value="282">Sports And Fitness</div>
+                        <div class="event-selection" value="242">Outdoors and Adventures</div>
+                        <div class="event-selection" value="302">Health and Wellness</div>
+                    </div>
+                    <div class="card-body">
+                        <p> Find even more oppurtunities on Meetup's website: <span>
+                        <a href="https://www.meetup.com/" target="blank"><i id="meetupIcon" class="fa fa-meetup" aria-hidden="true"></i></a></span>
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div id="fix2" class="col-lg-7 text-right">
-                <div id="event"></div>
+            <div id="fix2" class="col-lg-7 text-left">
+                <div>
+                    <div class="card">
+                        <div class="card-header">
+                            Social Hub
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Upcoming Events in Your Area!</h4>
+                            <p id="event" class="card-text"></p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <div id="footer" class="col-lg-12 text-center">
-        <p>FitHub &copy;</p>
+        <p>FitHub &copy;  2017</p>
     </div>
     <script src="assets/java/social.js"></script>
 </body>

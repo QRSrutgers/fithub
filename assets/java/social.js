@@ -33,7 +33,7 @@ $(".event-selection").on("click", function() {
                 timeEventNew.push(moment(timeEvent[i], "X"));
                 convertedTime.push((moment(timeEventNew[i]).format("H:HH, MM/DD")));
 
-                $("#event").append("<div>Name of Event: " + nameOfEvent[i] + "</div><div>Time of the Event (24hrs): " + convertedTime[i] + "</div><div>Link For event: <a href='" + linkForEvent[i] + "' target='_blank'>I'll take you there</a></div><br>");
+                $("#event").append("<div>Meetup Event: " + nameOfEvent[i] + "</div><div>Start Time (24hrs): " + convertedTime[i] + "</div><div>Link for event page: <a href='" + linkForEvent[i] + "' target='_blank'>I'll take you there</a></div><br>");
 
             }
 

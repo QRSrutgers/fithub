@@ -27,17 +27,55 @@ $(document).ready(function() {
   var satFatUser;
   var foodPic;
 
-  // Refill fields from local storage.
+  //These arrays will be populated from local storage.
+  var arryBkfst   = [];
+  var arrySnck1   = [];
+  var arryLunch   = [];
+  var arrySnck2   = [];
+  var arryDinner  = [];
 
-  document.getElementById("breakfastMeal").innerHTML = localStorage.getItem("breakfastMealSaved");
+  //These 5 variables are only used to determine if local storage values are null because if they are the array logic won't work.
+  var initBkfst =  localStorage.getItem("bkfstStored");
+  var initSnck1 =  localStorage.getItem("snck1Stored");
+  var initLunch =  localStorage.getItem("lunchStored");
+  var initSnck2 =  localStorage.getItem("snck2Stored");
+  var initDinner = localStorage.getItem("dinnerStored");
 
-  document.getElementById("snackOneMeal").innerHTML = localStorage.getItem("snackOneSaved");
+  // Parse into array from local storage as long as inital value is not null.  Then loop through the array to append to HTML upon page load.  This is done for each of the five meal wells.
+  if (initBkfst !== null) {
+    arryBkfst = JSON.parse(localStorage.getItem("bkfstStored"));
+  }
+  for (var i = 0; i < arryBkfst.length; i+=2) {
+      $("#breakfastMeal").append("<div>" + arryBkfst[i] + " " + arryBkfst[i + 1] + "cals" + "</div>");
+  };
 
-  document.getElementById("lunchMeal").innerHTML = localStorage.getItem("lunchSaved");
+  if (initSnck1 !== null) {
+    arrySnck1 = JSON.parse(localStorage.getItem("snck1Stored"));
+  }
+  for (var i = 0; i < arrySnck1.length; i+=2) {
+      $("#snackOneMeal").append("<div>" + arrySnck1[i] + " " + arrySnck1[i + 1] + "cals" + "</div>");
+  };
 
-  document.getElementById("snackTwoMeal").innerHTML = localStorage.getItem("snackTwoSaved");
+  if (initLunch !== null) {
+    arryLunch = JSON.parse(localStorage.getItem("lunchStored"));
+  }
+  for (var i = 0; i < arryLunch.length; i+=2) {
+      $("#lunchMeal").append("<div>" + arryLunch[i] + " " + arryLunch[i + 1] + "cals" + "</div>");
+  };
 
-  document.getElementById("dinnerMeal").innerHTML = localStorage.getItem("dinnerSaved");
+  if (initSnck2 !== null) {
+    arrySnck2 = JSON.parse(localStorage.getItem("snck2Stored"));
+  }
+  for (var i = 0; i < arrySnck2.length; i+=2) {
+      $("#snackTwoMeal").append("<div>" + arrySnck2[i] + " " + arrySnck2[i + 1] + "cals" + "</div>");
+  };
+
+  if (initDinner !== null) {
+    arryDinner = JSON.parse(localStorage.getItem("dinnerStored"));
+  }
+  for (var i = 0; i < arryDinner.length; i+=2) {
+      $("#dinnerMeal").append("<div>" + arryDinner[i] + " " + arryDinner[i + 1] + "cals" + "</div>");
+  };
 
   // User enters data
 
@@ -90,41 +128,64 @@ $(document).ready(function() {
 
   });
 
-  //On click events to add food items to the coresponding wells
+  //On click events to add food items to the coresponding wells.  Then the same items are pushed into an array that is stringified in order to be saved in local storage.  Arrays themselves cannot be saved there, only JSON strings.
+
   $("#breakfastWell").on("click", function(event) {
     var value = $("#foodInput").val();
     console.log("value", value);
-    $("#breakfastMeal").append("<div>" + value + " " + caloriesUser + " cals" + "</div>");
-    localStorage.setItem("breakfastMealSaved", value);
+    $("#breakfastMeal").append("<div>" + value + " " + caloriesUser + "cals" + "</div>");
+
+    arryBkfst.push(value, caloriesUser);
+    storedBkfst = JSON.stringify(arryBkfst);
+
+    localStorage.setItem("bkfstStored", storedBkfst);
+
   });
 
   $("#snackOneWell").on("click", function(event) {
     var value = $("#foodInput").val();
     console.log("value", value);
-    $("#snackOneMeal").append("<div>" + value + " " + caloriesUser + " cals" + "</div>");
-    localStorage.setItem("snackOneSaved", value);
+    $("#snackOneMeal").append("<div>" + value + " " + caloriesUser + "cals" + "</div>");
 
+    arrySnck1.push(value, caloriesUser);
+    storedSnck1 = JSON.stringify(arrySnck1);
+
+    localStorage.setItem("snck1Stored", storedSnck1);
   });
+
   $("#lunchWell").on("click", function(event) {
     var value = $("#foodInput").val();
     console.log("value", value);
-    $("#lunchMeal").append("<div>" + value + " " + caloriesUser + " cals" + "</div>");
-    localStorage.setItem("lunchSaved", value);
+    $("#lunchMeal").append("<div>" + value + " " + caloriesUser + "cals" + "</div>");
 
+    arryLunch.push(value, caloriesUser);
+    storedLunch = JSON.stringify(arryLunch);
+
+    localStorage.setItem("lunchStored", storedLunch);
   });
+
   $("#snackTwoWell").on("click", function(event) {
     var value = $("#foodInput").val();
     console.log("value", value);
-    $("#snackTwoMeal").append("<div>" + value + " " + caloriesUser + " cals" + "</div>");
-    localStorage.setItem("snackTwoSaved", value);
+    $("#snackTwoMeal").append("<div>" + value + " " + caloriesUser + "cals" + "</div>");
 
+    arrySnck2.push(value, caloriesUser);
+    storedSnck2 = JSON.stringify(arrySnck2);
+
+    localStorage.setItem("snck2Stored", storedSnck2);
   });
+
   $("#dinnerWell").on("click", function(event) {
     var value = $("#foodInput").val();
     console.log("value", value);
-    $("#dinnerMeal").append("<div>" + value + " " + caloriesUser + " cals" + "</div>");
-    localStorage.setItem("dinnerSaved", value);
+    $("#dinnerMeal").append("<div>" + value + " " + caloriesUser + "cals" + "</div>");
+
+    arryDinner.push(value, caloriesUser);
+    storedDinner = JSON.stringify(arryDinner);
+
+    localStorage.setItem("dinnerStored", storedDinner);
 
   });
 })
+
 

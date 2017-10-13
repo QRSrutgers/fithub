@@ -1,3 +1,17 @@
+//On click event for page navs
+$("#nutriArrow").on("click", function() {
+    window.location.href="nutrition.html";
+});
+//On click event for page navs
+$("#excerciseArrow").on("click", function() {
+    window.location.href="exercise.html";
+});
+//On click event for page navs
+$("#socialArrow").on("click", function() {
+    window.location.href="social.html";
+});
+
+
 // Capture Button Click for Your Hub
 $("#save-changes-yourHub").on("click", function(event) {
     // prevent page from refreshing when form tries to submit itself

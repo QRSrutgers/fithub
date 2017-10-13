@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)file:///Users/kellyquinn/Desktop/fithub/home.html -->
+<html class="fa-events-icons-ready"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>FitHub</title>
+    <link rel="stylesheet" href="./FitHub_files/reset.css">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--JQuery linked -->
+    <script src="./FitHub_files/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!--Bootstrap CSS -->
+    <link rel="stylesheet" href="./FitHub_files/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <!--Popper -->
+    <script src="./FitHub_files/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="./FitHub_files/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <!--CSS-->
+    <link rel="stylesheet" href="./FitHub_files/style.css">
+    <!-- MomentJS Reference -->
+    <script src="./FitHub_files/moment.min.js"></script>
+    <!--Font Awesome Link -->
+    <script src="./FitHub_files/86907fa281.js"></script><link href="./FitHub_files/86907fa281.css" media="all" rel="stylesheet">
+    <!--Firebase -->
+    <script src="./FitHub_files/firebase.js"></script>
+</head>
+
+<body class="">
+    <div id="header1" class="row">
+        <div class="col-lg-5 text-center">
+            <h1 id="logo">FitHub</h1>
+        </div>
+        <div id="nav" class="col-lg-6 text-center">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="file:///Users/kellyquinn/Desktop/fithub/home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="file:///Users/kellyquinn/Desktop/fithub/exercise.html">Exercise</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="file:///Users/kellyquinn/Desktop/fithub/nutrition.html">Nutrition</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="file:///Users/kellyquinn/Desktop/fithub/social.html">Social</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <br>
+    <!--Modals -->
+    <!-- Your Hub Modal -->
+    <div class="modal" id="myHubModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Your Hub</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        </p><div class="form-group">
+                            <label for="cweight-input">Current Weight:</label>
+                            <input class="form-control" id="cweight" type="number">
+                        </div>
+                        <div class="form-group">
+                            <label for="tweight-input">Target Weight:</label>
+                            <input class="form-control" id="tweight" type="number">
+                        </div>
+                        <div class="form-group">
+                            <label for="comment-input">Set a reminder for today's fitness goal:</label>
+                            <textarea class="form-control" id="comment-input" rows="5"></textarea>
+                        </div>
+                    <p></p>
+                </div>
+                <div class="modal-footer">
+                    <button id="save-changes-yourHub" type="button" class="btn btn-dark">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Nutrition Hub Modal -->
+    <div class="modal" id="myNutriModal" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Your Nutrition Hub</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        </p><div class="form-group">
+                            <label for="calorie-mod-input"> Add some calories:</label>
+                            <input class="form-control" id="cal-mod" type="number">
+                        </div>
+                    <p></p>
+                </div>
+                <div class="modal-footer">
+                    <button id="save-changes-nutri" type="button" class="btn btn-dark">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fitness Hub Modal -->
+    <div class="modal" id="myFitModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Your Fitness Hub</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        </p><div class="form-group">
+                            <label for="body-input">What part of the body did you work on?</label>
+                            <input class="form-control" id="bodyWork" type="string">
+                        </div>
+                        <div class="form-group">
+                            <label for="cardio-input">What kind of cardio did you do?</label>
+                            <input class="form-control" id="cardio" type="string">
+                        </div>
+                    <p></p>
+                </div>
+                <div class="modal-footer">
+                    <button id="save-changes-fit" type="button" class="btn btn-dark">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Water Progress Bar -->
+    <div class="container">
+        <h5 id="waterBadge">Water    <span class="badge badge-secondary"></span><i id="droplet" class="fa fa-tint" aria-hidden="true"></i></h5>
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+    </div>
+    <br>
+    <!-- Container with main content -->
+    <div class="container" id="homeContainer">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="card bg-dark text-white">
+                    <img class="card-img" id="running_img" src="./FitHub_files/trail_running.jpeg" alt="Card image">
+                    <div class="card-img-overlay">
+                        <h1 class="card-title">Hello, User!</h1>
+                        <p id="todayDate" class="card-text"> This is where we will display todays date!</p>
+                        <p class="card-text">Maybe insert the time here?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="card">
+                    <div class="card-header">
+                        Your Hub
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">How are you doing today?</h5>
+                        <h6 id="currentWeight" class="card-title">Current Weight: <span id="cweight-display">109</span> lbs.</h6>
+                        <h6 id="goalWeight" class="card-title">Goal Weight: <span id="tweight-display">100</span> lbs.</h6>
+                        <br>
+                        <h5 class="card-title">Todays reminder: <span id="comment-display">Get up at 6:00am</span></h5>
+                        <ul>
+                        </ul>
+                        <!-- Trigger modal for user input -->
+                        <p class="card-text"><small class="text-muted">Update today's hub! <span><i id="updYourHub" class="fa fa-cog" aria-hidden="true" data-toggle="modal" data-target="#myHubModal"></i>
+                        </span></small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card-group">
+                    <div class="card">
+                        <img class="card-img-top" src="./FitHub_files/meal_prep.jpeg" alt="Card image cap" height="200">
+                        <div class="card-body">
+                            <h4 class="card-title">Nutrition Hub</h4>
+                            <h7 class="card-title">Log today's calorie intake:</h7>
+                            <p class="card-text">
+                                </p><h5 id="calorieCounter" class="card-title">Today's Calories: <span id="cal-eaten-display">30</span></h5>
+                                <h5 id="calorieLeft" class="card-title">Calories Left:</h5>
+                            <p></p>
+                            <!-- Trigger modal for user input -->
+                            <p class="card-text"><small class="text-muted">Update today's hub! <span><i id="updNutrHub" class="fa fa-cog" aria-hidden="true" data-toggle="modal" data-target="#myNutriModal"></i></span></small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card-group">
+                    <div class="card">
+                        <img class="card-img-top" src="./FitHub_files/kettlebell.jpeg" alt="Card image cap" height="200">
+                        <div class="card-body">
+                            <h4 class="card-title">Fitness Hub</h4>
+                            <h7 class="card-title">Log today's excercise:</h7>
+                            <p class="card-text">
+                                </p><h5 id="exerciseType" class="card-title">Weight Training: <span id="body-work-display">Chest</span></h5>
+                                <h5 id="cardioType" class="card-title">Cardio: <span id="cardio-display">ran 3 miles</span></h5>
+                            <p></p>
+                            <!-- Trigger modal for user input -->
+                            <p class="card-text"><small class="text-muted">Update today's hub! <span><i id="updFitnessHub" class="fa fa-cog" aria-hidden="true" data-toggle="modal" data-target="#myFitModal"></i></span></small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card-group">
+                    <div class="card">
+                        <img class="card-img-top" src="./FitHub_files/group_cycle_2.jpeg" alt="Card image cap" height="200">
+                        <div class="card-body">
+                            <h4 class="card-title">Social Hub</h4>
+                            <h7 class="card-title">Any upcoming events today?</h7>
+                            <p class="card-text">
+                                </p><h5 id="socialType" class="card-title">Upcoming events:</h5>
+                                <h7 id="findSocialType" class="card-title">Nothing planned? </h7>
+                                <h6>Explore Meetup now! <span><i id="meetupIcon" class="fa fa-meetup" aria-hidden="true"></i></span></h6>
+                            <p></p>
+                            <p class="card-text"><small class="text-muted">Update today's hub! <span><i id="updSocialHub" class="fa fa-cog" aria-hidden="true"></i></span></small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer" class="col-lg-12 text-center">
+        <p>FitHub ©</p>
+    </div>
+
+    <script type="text/javascript" src="./FitHub_files/home.js"></script>
+
+
+</body></html>

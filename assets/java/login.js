@@ -20,6 +20,11 @@ const btnLogin = document.getElementById("btnLogin");
 const btnSignUp = document.getElementById("btnSignUp");
 const btnLogOut = document.getElementById("btnLogOut");
 
+//Redirects you to the home page for now
+$("#btnRedirect").on("click", function(){
+    window.location.href = "home.html";
+
+});
 //Add login event
 $("#btnLogin").on("click", e => {
     // get email and pass

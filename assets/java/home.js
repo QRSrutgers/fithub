@@ -52,6 +52,32 @@ $("#droplet").on("click", function(e) {
     localStorage.setItem("WaterBar", progress);
 })
 
+// Button clicks for ALL the modals
+// Capture Button Click for Prof Hub
+$("#save-changes-profHub").on("click", function(event) {
+    // prevent page from refreshing when form tries to submit itself
+    event.preventDefault();
+
+    // Capture user inputs and store them into variables
+    var name = $("#name-entry").val().trim();
+    var email = $("#email-entry").val().trim();
+    var birthday = $("#age-entry").val().trim();
+
+    // Console log each of the user inputs to confirm we are receiving them
+    console.log(name);
+    console.log(email);
+    console.log(birthday);
+
+    // Replaces the content in the div with the new info
+    $("#name-display").html(name);
+
+    // Clear localStorage
+    //localStorage.clear();
+    localStorage.removeItem("name");
+
+    // Store all content into localStorage
+    localStorage.setItem("name", name);
+});
 
 // Capture Button Click for Your Hub
 $("#save-changes-yourHub").on("click", function(event) {
@@ -153,7 +179,6 @@ $("#save-changes-nutri").on("click", function(event) {
     localStorage.setItem("sumCals", sumCals);
     localStorage.setItem("calsLeft", calsLeft);
 
-    //TODO I NEED HELP PARSE ADDING THESE ADDITIONAL VALUES!
 });
 
 // Capture Button Click for Fitness Hub
@@ -164,27 +189,64 @@ $("#save-changes-fit").on("click", function(event) {
     // Capture user inputs and store them into variables
     var bodyWork = $("#bodyWork").val().trim();
     var cardio = $("#cardio").val().trim();
+    var notes = $("#notesFit").val().trim();
 
     // Console log each of the user inputs to confirm we are receiving them
     console.log(bodyWork);
     console.log(cardio);
+    console.log(notes)
 
     // Replaces the content in the div with the new info
     $("#body-work-display").text(bodyWork);
     $("#cardio-display").text(cardio);
+    $("#notes-display").text(notes);
+
 
     // Clear localStorage
     //localStorage.clear();
     localStorage.removeItem("bodyWork");
     localStorage.removeItem("cardio");
+    localStorage.removeItem("notes");
+
 
     // Store all content into localStorage
     localStorage.setItem("bodyWork", bodyWork);
     localStorage.setItem("cardio", cardio);
+    localStorage.setItem("Fitness notes", notes);
+
+});
+
+// Capture Button Click for Prof Hub
+$("#save-changes-social").on("click", function(event) {
+    // prevent page from refreshing when form tries to submit itself
+    event.preventDefault();
+
+    // Capture user inputs and store them into variables
+    var nameEvent = $("#eventName").val().trim();
+    var timeEvent = $("#eventTime").val().trim();
+
+    // Console log each of the user inputs to confirm we are receiving them
+    console.log(nameEvent);
+    console.log(timeEvent);
+
+    // Replaces the content in the div with the new info
+    $("#event-name-display").html(nameEvent);
+    $("#event-time-display").html(timeEvent);
+
+    // Clear localStorage
+    //localStorage.clear();
+    localStorage.removeItem("nameEvent");
+    localStorage.removeItem("timeEvent");
+
+
+    // Store all content into localStorage
+    localStorage.setItem("Event Name", nameEvent);
+    localStorage.setItem("Event Time", timeEvent);
 
 });
 
 // By default display the content from localStorage
+$("name-display").text(localStorage.getItem("name"));
 $("#cweight-display").text(localStorage.getItem("cweight"));
 $("#tweight-display").text(localStorage.getItem("tweight"));
 $("#comment-display").text(localStorage.getItem("comment"));
@@ -193,3 +255,6 @@ $("#cal-limit-display").text(localStorage.getItem("calLimitDisplay"));
 $("#cal-left-display").text(localStorage.getItem("calsLeft"));
 $("#body-work-display").text(localStorage.getItem("bodyWork"));
 $("#cardio-display").text(localStorage.getItem("cardio"));
+$("#notes-display").text(localStorage.getItem("notes"));
+$("#event-name-display").text(localStorage.getItem("nameEvent"));
+$("#event-time-display").text(localStorage.getItem("timeEvent"));

@@ -1,6 +1,6 @@
 #loginBody {
-  background: url("http://p413life.com/wp-content/uploads/2014/02/fitness-nail.jpg") no-repeat center center fixed;
-  background-size: cover;
+    background: url("http://p413life.com/wp-content/uploads/2014/02/fitness-nail.jpg") no-repeat center center fixed;
+    background-size: cover;
 }
 
 #nav {
@@ -163,6 +163,17 @@ p {
 .container {
     padding-bottom: 50px;
 }
+
+#greeting {
+    font-family: 'Lobster', cursive;
+    font-size: 64px;
+    letter-spacing: 3px;
+}
+
+#todayDate {
+    font-family: 'Abel', sans-serif;
+}
+
 
 @media screen and (min-width: 800px) {
     #center1 {

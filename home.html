@@ -21,6 +21,8 @@
     <script src="https://use.fontawesome.com/86907fa281.js"></script>
     <!--Firebase -->
     <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Abel|Lobster" rel="stylesheet">
 </head>
 
 <body>
@@ -28,25 +30,42 @@
         <div class="col-lg-7 text-left">
             <h1 id="logo">FitHub <span><i class="fa fa-spinner" aria-hidden="true"></i></span></h1>
         </div>
-        <!-- <div id="nav" class="col-lg-5 text-center">
-            <ul class="nav justify-content-center">
-                <li class="nav-item">
-                    <a class="nav-link active" href="home.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="exercise.html">Exercise</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="nutrition.html">Nutrition</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="social.html">Social</a>
-                </li>
-            </ul>
-        </div> -->
     </div>
     <br>
     <!--Modals -->
+    <!--Initial on document load - once - Profile modal-->
+    <div class="modal" id="myProfModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Welcome to FitHub!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <div class="form-group">
+                            <label for="name-input">What's your name?:</label>
+                            <input class="form-control" id="name-entry" type="string">
+                        </div>
+                        <div class="form-group">
+                            <label for="age-input">What's your date of birth (mm/dd/yyyy)?:</label>
+                            <input class="form-control" id="age-entry" type="string">
+                        </div>
+                        <div class="form-group">
+                            <label for="email-input">Email Address:</label>
+                            <textarea class="form-control" id="email-entry" type="string"></textarea>
+                        </div>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button id="save-changes-profHub" type="button" class="btn btn-dark">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Your Hub Modal -->
     <div class="modal" id="myHubModal">
         <div class="modal-dialog" role="document">
@@ -92,10 +111,6 @@
                 </div>
                 <div class="modal-body">
                     <p>
-                        <!--                         <div class="form-group">
-                            <label for="calorie-limit-input"> Set your calorie limit for today:</label>
-                            <input class="form-control" id="cal-limit" type="number">
-                        </div> -->
                         <div class="form-group">
                             <label for="calorie-mod-input"> Add some calories:</label>
                             <input class="form-control" id="cal-mod" type="number">
@@ -129,10 +144,43 @@
                             <label for="cardio-input">What kind of cardio did you do?</label>
                             <input class="form-control" id="cardio" type="string">
                         </div>
+                        <div class="form-group">
+                            <label for="fit-notes-input">Additional fitness notes:</label>
+                            <textarea class="form-control" id="notesFit" rows="5"></textarea>
+                        </div>
                     </p>
                 </div>
                 <div class="modal-footer">
                     <button id="save-changes-fit" type="button" class="btn btn-dark">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Social Hub Modal -->
+    <div class="modal" id="mySocModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Your Social Hub</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <div class="form-group">
+                            <label for="event-name-input">Name of Event?</label>
+                            <input class="form-control" id="eventName" type="string">
+                        </div>
+                        <div class="form-group">
+                            <label for="event-time-input">Time?</label>
+                            <input class="form-control" id="eventTime" type="string">
+                        </div>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button id="save-changes-social" type="button" class="btn btn-dark">Save changes</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -153,11 +201,22 @@
                 <div class="card bg-dark text-white">
                     <img class="card-img" id="running_img" src="assets/css/images/trail_running.jpeg" alt="Card image">
                     <div class="card-img-overlay">
+                        <h1 id="greeting" class="card-title">Hello, <span id="name-display"></span>!</h1>
+                        <h5><p id="todayDate" class="card-text"> Today is</p></h5>
+                        <h4><p class="card-text" id="actualTimeDisplay"></p></h4>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <button id="resetProgress" class="btn btn-secondary"> Reset water bar</button>
+
                         <h1 class="card-title">Hello, User!</h1>
                         <p id="todayDate" class="card-text"> This is where we will display todays date!</p>
                         <p class="card-text" id="actualTimeDisplay"></p>
 
                         <button id="resetProgress" class="btn btn-success">I reset water bar</button>
+
 
                     </div>
                 </div>
@@ -165,7 +224,7 @@
             <div class="col-lg-5">
                 <div class="card">
                     <div class="card-header">
-                        <span><i class="fa fa-user" aria-hidden="true"></i></span> Your Hub
+                        Your Hub
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">How are you doing today?</h5>
@@ -178,6 +237,10 @@
                         <!-- Trigger modal for user input -->
                         <p class="card-text"><small class="text-muted">Update today's hub! <span><i id="updYourHub" class="fa fa-cog" aria-hidden="true" data-toggle="modal" data-target="#myHubModal"></i>
                         </span></small>
+                            <br>
+                            <span class="card-text"><small class="text-muted">Update your account! <span><i class="fa fa-user" aria-hidden="true" data-toggle="modal" data-target="#myProfModal"></i>
+                        </span></small>
+                            </span>
                         </p>
                     </div>
                 </div>
@@ -194,7 +257,10 @@
                             </h4>
                             <h7 class="card-title">Log today's calorie intake:</h7>
                             <p class="card-text">
-                                <h5>Enter limit for Calories: <input id="cal-limit"><button id="calorieLimit">ok</button></h5>
+                                <h6>What's your calorie limit for today?: 
+                                <br><br>
+                                <input id="cal-limit"> <button id="calorieLimit">cals</button></h6>
+                                <br>
                                 <h5 id="calorieLimit" class="card-title">Calories Limit: <span id="cal-limit-display"></span></h5>
                                 <h5 id="calorieCounter" class="card-title">Today's Calories: <span id="cal-eaten-display"></span></h5>
                                 <h5 id="calorieLeft" class="card-title">Calories Left: <span id="cal-left-display"></span></h5>
@@ -217,6 +283,8 @@
                                 <h5 id="exerciseType" class="card-title">Weight Training: <span id="body-work-display"></h5>
                                 <h5 id="cardioType" class="card-title">Cardio: <span id="cardio-display"></h5>
                             </p>
+                            <h5 id="excerciseNotes" class="card-title">Notes: <span id="notes-display"></h5>
+                            </p>
                             <!-- Trigger modal for user input -->
                             <p class="card-text"><small class="text-muted">Update today's hub! <span><i id="updFitnessHub" class="fa fa-cog" aria-hidden="true" data-toggle="modal" data-target="#myFitModal"></i></span></small></p>
                         </div>
@@ -233,10 +301,14 @@
                             <h7 class="card-title">Any upcoming events today?</h7>
                             <p class="card-text">
                                 <h5 id="socialType" class="card-title">Upcoming events:</h5>
+                                <br>
+                                <h6><div class="card-text">Event: <span id="event-name-display"></div></h6>
+                                <h6><div class="card-text">Time: <span id="event-time-display"></div></h6>
+                                <br>
                                 <h7 id="findSocialType" class="card-title">Nothing planned? </h7>
                                 <h6>Explore Meetup now! <span><i id="meetupIcon" class="fa fa-meetup" aria-hidden="true"></i></span></h6>
                             </p>
-                            <p class="card-text"><small class="text-muted">Update today's hub! <span><i id="updSocialHub" class="fa fa-cog" aria-hidden="true"></i></span></small></p>
+                            <p class="card-text"><small class="text-muted">Update today's hub! <span><i id="updSocialHub" class="fa fa-cog" aria-hidden="true" data-toggle="modal" data-target="#mySocModal"></i></span></small></p>
                         </div>
                     </div>
                 </div>

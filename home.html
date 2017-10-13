@@ -92,10 +92,10 @@
                 </div>
                 <div class="modal-body">
                     <p>
-                        <div class="form-group">
+                        <!--                         <div class="form-group">
                             <label for="calorie-limit-input"> Set your calorie limit for today:</label>
                             <input class="form-control" id="cal-limit" type="number">
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label for="calorie-mod-input"> Add some calories:</label>
                             <input class="form-control" id="cal-mod" type="number">
@@ -190,8 +190,10 @@
                             <h4 class="card-title">Nutrition Hub</h4>
                             <h7 class="card-title">Log today's calorie intake:</h7>
                             <p class="card-text">
+                                <h5>Enter limit for Calories: <input id="cal-limit"><button id="calorieLimit">ok</button></h5>
+                                <h5 id="calorieLimit" class="card-title">Calories Limit: <span id="cal-limit-display"></span></h5>
                                 <h5 id="calorieCounter" class="card-title">Today's Calories: <span id="cal-eaten-display"></span></h5>
-                                <h5 id="calorieLeft" class="card-title">Calories Left: <span id="cal-limit-display"></span></h5>
+                                <h5 id="calorieLeft" class="card-title">Calories Left: <span id="cal-left-display"></span></h5>
                             </p>
                             <!-- Trigger modal for user input -->
                             <p class="card-text"><small class="text-muted">Update today's hub! <span><i id="updNutrHub" class="fa fa-cog" aria-hidden="true" data-toggle="modal" data-target="#myNutriModal"></i></span></small></p>

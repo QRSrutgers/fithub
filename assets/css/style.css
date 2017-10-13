@@ -22,7 +22,7 @@
 }
 
 #userNotes {
-    position: fixed;
+    position: fixed !important;
     top: 65%;
     right: 16%;
     width: 640px;
@@ -50,10 +50,6 @@
 
 #LOGIN {
     margin-top: 20px;
-}
-
-#searchBar {
-    margin: auto;
 }
 
 

@@ -7,12 +7,14 @@ var convertedTime = [];
 
 
 $(".event-selection").on("click", function() {
-            $("#event").html("");
-            nameOfEvent = [];
-            convertedTime = [];
-            linkForEvent = [];
-            timeEvent = [];
-            timeEventNew = [];
+    $("#event").html("");
+    nameOfEvent = [];
+    convertedTime = [];
+    linkForEvent = [];
+    timeEvent = [];
+    timeEventNew = [];
+    // displayTime = [];
+
 
             chosen = $(this).attr("value");
 
@@ -40,11 +42,14 @@ $(".event-selection").on("click", function() {
                     console.log("Time Event:" + timeEvent);
 
                 timeEventNew.push(moment(timeEvent[i], "X"));
+
                     console.log("TimeEventNew:" + timeEventNew);
 
                 convertedTime.push(moment(timeEventNew[i]).format("MM/DD/YYYY, HH:MM"));
-                    console.log("Converted time" + convertedTime);
+                    console.log("Converted time:" + convertedTime);
 
+                 // displayTime.push(convertedTime);
+                 //    console.log("Displayed Time:" + displayTime);   
                 $("#event").append("<div>Meetup Event: " + nameOfEvent[i] + "</div><div>Date & Time (24hrs): " + convertedTime[i] + "</div><div>Link for event page: <a href='" + linkForEvent[i] + "' target='_blank'>I'll take you there</a></div><br>");
 
             }

@@ -22,6 +22,36 @@ function timer() {
 
 timer();
 
+var progress = localStorage.getItem("WaterBar");
+
+if (progress == null) {
+    progress = 0;
+} else {
+    progress = parseInt(progress);
+}
+
+$("#resetProgress").on("click", function() {
+    progress = 0;
+
+    $("#progressBar").html("<div class='progress-bar progress-bar-striped' role='progressbar' style='width:" + progress + "px;'" + "aria-valuenow='10' aria-valuemin='0' aria-valuemax='100'></div>");
+
+    localStorage.getItem("WaterBar", 0);
+})
+
+$("#progressBar").html("<div class='progress-bar progress-bar-striped' role='progressbar' style='width:" + progress + "px;'" + "aria-valuenow='10' aria-valuemin='0' aria-valuemax='100'></div>");
+
+$("#droplet").on("click", function(e) {
+    e.preventDefault();
+
+    progress += 100;
+
+    console.log(progress);
+
+    $("#progressBar").html("<div class='progress-bar progress-bar-striped' role='progressbar' style='width:" + progress + "px;'" + "aria-valuenow='10' aria-valuemin='0' aria-valuemax='100'></div>");
+
+    localStorage.setItem("WaterBar", progress);
+})
+
 // Capture Button Click for Your Hub
 $("#save-changes-yourHub").on("click", function(event) {
     // prevent page from refreshing when form tries to submit itself

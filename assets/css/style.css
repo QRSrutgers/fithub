@@ -161,12 +161,12 @@ p {
 
 @media screen and (min-width: 800px) {
     #center1 {
-        text-align: right;
+        text-align: center;
     }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (max-width: 600px) {
     #center1 {
-        text-align: center;
+        text-align: right;
     }
 }

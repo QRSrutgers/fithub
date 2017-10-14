@@ -26,38 +26,22 @@ $(".event-selection").on("click", function() {
                     method: "GET"
                 })
                 .done(function(response) {
-                    console.log(response);
                     for (var i = 0; i < 5; i++) {
 
 
                         nameOfEvent.push(response[i].name);
 
                         linkForEvent.push(response[i].link);
-                        console.log("link" + linkForEvent);
 
                         var day = moment.unix(response[i].time / 1000).format("MM/DD/YYYY");
-                        console.log("Day:" + day);
 
                         timeEvent.push(moment.unix(response[i].time / 1000));
-                        console.log("Time Event:" + timeEvent);
 
                         timeEventNew.push(moment(timeEvent[i], "X"));
 
-                        console.log("TimeEventNew:" + timeEventNew);
-
+                        convertedTime.push(moment(timeEventNew[i]).format("MM/DD/YYYY, HH:MM"));
 
                         convertedTime.push(moment(timeEventNew[i]).format("MM/DD/YYYY, HH:MM"));
-                        console.log("Converted time" + convertedTime);
-
-
-
-                        console.log("TimeEventNew:" + timeEventNew);
-
-                        convertedTime.push(moment(timeEventNew[i]).format("MM/DD/YYYY, HH:MM"));
-                        console.log("Converted time:" + convertedTime);
-
-                        // displayTime.push(convertedTime);
-                        //    console.log("Displayed Time:" + displayTime);   
 
                         $("#event").append("<div>Meetup Event: " + nameOfEvent[i] + "</div><div>Date & Time (24hrs): " + convertedTime[i] + "</div><div>Link for event page: <a href='" + linkForEvent[i] + "' target='_blank'>I'll take you there</a></div><br>");
 

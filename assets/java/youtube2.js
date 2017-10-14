@@ -6,7 +6,6 @@ var videoId = [];
 googleApiClientReady = function() {
     gapi.auth.init(function() {
         window.setTimeout(checkAuth, 1);
-        console.log("client");
     });
 }
 
@@ -71,7 +70,6 @@ function search() {
         part: 'snippet'
     });
     request.execute(function(response) {
-        console.log(response);
         for (var i = 0; i < 5; i++) {
             title.push(response.items[i].snippet.title);
 
@@ -83,34 +81,43 @@ function search() {
     });
 };
 
+$("#videoHome").on("click", "#addNote", function(e) {
+    e.preventDefault();
+    notesKept = $("#newNotes").val().trim();
+
+    $("#notesDisplay").text(notesKept);
+
+    localStorage.setItem("notesNew", notesKept);
+});
+
 $("#staffPickBtn").on("click", function() {
-    $("#videoHome").html("<div class='col-lg-4 text-center'><h3>Kelly's pick</h3><img class='staffVideo' data-index='1'src='https://i.ytimg.com/vi/S0ZAPSKhWRM/hqdefault.jpg'></div><div class='col-lg-4 text-center'><h3>Ray's pick</h3><img class='staffVideo' data-index='2'src= 'https://i.ytimg.com/vi/ZtlH0A5dlLg/hqdefault.jpg'></div><div class='col-lg-4 text-center'><h3>Stephen's pick</h3><img class='staffVideo' data-index='3'src='https://i.ytimg.com/vi/S0ZAPSKhWRM/hqdefault.jpg'></div>");
+    $("#videoHome").html("<div class='col-lg-4 text-center'><h3>Kelly's pick</h3><img class='staffVideo' data-index='1'src='https://i.ytimg.com/vi/WFUOtnI1jwk/hqdefault.jpg'></div><div class='col-lg-4 text-center'><h3>Ray's pick</h3><img class='staffVideo' data-index='2'src= 'https://i.ytimg.com/vi/ZtlH0A5dlLg/hqdefault.jpg'></div><div class='col-lg-4 text-center'><h3>Stephen's pick</h3><img class='staffVideo' data-index='3'src='https://i.ytimg.com/vi/CdtrfXK7bcg/hqdefault.jpg'></div>");
 
     $("#videoHome").show();
     $("#videoSearched").hide();
 
-});
+})
 
+$("#notesDisplay").text(localStorage.getItem("notesNew"));
 
 $("#newNotesBtn").on("click", function() {
     $("#videoHome").show();
     $("#videoSearched").hide();
 
-    $("#videoHome").html("<div class='col-lg-6'><textarea id='newNotes'>Here is where you can add new notes</textarea></div><div class='col-lg-1 text-center'><button id='addNote'>Add Notes</button></div><div class='col-lg-5 text-right' id='notesDisplay'>Notes from local storage will display here</div>");
+    $("#videoHome").html("<div class='col-lg-5'><textarea id='newNotes' placeholder='Here is where you can add new notes'></textarea></div><div class='col-lg-2 text-center'><button class='btn btn-success' id='addNote'>Add Note</button></div><div class='col-lg-5 text-right' id='notesDisplay'></div>");
 });
 
 
 $("#videoHome").on("click", ".staffVideo", function() {
     var staffChosen = ($(this).data("index"));
-    console.log(staffChosen);
     if (staffChosen == 1) {
-        $("#videoHome").html("<div class='col-lg-6 text-center'><h2>Leg Workout</h2><iframe class='videoFrame' src='https://www.youtube.com/embed/WFUOtnI1jwk'></iframe></div><div id='center1' class='col-lg-6 text-right'><h2>Exersice instructions</h2><textarea>#1Front Barbell Squat: 4 set of 6-8 reps. #2 Leg Press: 3 sets of 8-10 reps. #3 Leg Curls: 3 sets of 6-8 reps. #4 Barbell Reverse Lunge: 3 sets of 8, 10, 12 reps. #5 Deadlift: 3 sets of 8-12 reps.<a href=https://www.bodybuilding.com/content/deadlifts-should-you-train-them-with-back-or-legs.html</a></textarea>");
+        $("#videoHome").html("<div class='col-lg-6 text-center'><h2>Leg Workout</h2><iframe class='videoFrame' src='https://www.youtube.com/embed/WFUOtnI1jwk'></iframe></div><div class='col-lg-6 text-right'><h2>Exercise instructions</h2><textarea id='staffNotes'>#1Front Barbell Squat: 4 set of 6-8 reps. #2 Leg Press: 3 sets of 8-10 reps. #3 Leg Curls: 3 sets of 6-8 reps. #4 Barbell Reverse Lunge: 3 sets of 8, 10, 12 reps. #5 Deadlift: 3 sets of 8-12 reps.</textarea>");
     }
     if (staffChosen == 2) {
-        $("#videoHome").html("<div id='center1' class='col-lg-6'><h2>Chest Workout</h2><iframe class='videoFrame' src='https://www.youtube.com/embed/ZtlH0A5dlLg'></iframe></div><div id='center1' class='col-lg-6'><h2>Exersice instructions</h2><textarea id='staffNotes'>#1Barbell Bench Press: 3 sets of 20,15,10 reps. #2Incline Dumbbell Press: 2 sets of 10-12 reps to failure. #3Flat Dumbbell Fly: 2 sets of 15 reps to failure. #4Bar Dip: 3 sets to failure. #5Push-Up: 100 reps.<a href='https://www.bodybuilding.com/content/5-best-exercises-for-a-bigger-chest.html'>More information</a></textarea>");
+        $("#videoHome").html("<div id='center1' class='col-lg-6'><h2>Chest Workout</h2><iframe class='videoFrame' src='https://www.youtube.com/embed/ZtlH0A5dlLg'></iframe></div><div class='col-lg-6 text-right'><h2>Exercise instructions</h2><textarea id='staffNotes'>#1Barbell Bench Press: 3 sets of 20,15,10 reps. #2Incline Dumbbell Press: 2 sets of 10-12 reps to failure. #3Flat Dumbbell Fly: 2 sets of 15 reps to failure. #4Bar Dip: 3 sets to failure. #5Push-Up: 100 reps.</textarea>");
     }
     if (staffChosen == 3) {
-        $("#videoHome").html("<div class='col-lg-6 text-right'><h2>Back Workout</h2><iframe class='videoFrame' src='https://www.youtube.com/embed/CdtrfXK7bcg'></iframe></div><div id='center1' class='col-lg-6 text-center'><h2>Exersice instructions</h2><textarea id='staffNotes'>#1Wide Grip Pullup: 3 sets of 8-12 reps. #2Standing T-Bar Row: 4 sets of 8-10 reps. #3Wide-Grip Seated Cable Row: 4 sets of 10-12 reps. #Reverse Grip Smith Machine Row: 3 sets to 8-10 reps. #5Close Grip Pull Down: 3 sets 10-12 reps.<a href='https://www.bodybuilding.com/content/10-best-muscle-building-back-exercises.html'>More information</a></textarea>");
+        $("#videoHome").html("<div class='col-lg-6 text-right'><h2>Back Workout</h2><iframe class='videoFrame' src='https://www.youtube.com/embed/CdtrfXK7bcg'></iframe></div><div class='col-lg-6 text-right'><h2>Exercise instructions</h2><textarea id='staffNotes'>#1Wide Grip Pullup: 3 sets of 8-12 reps. #2Standing T-Bar Row: 4 sets of 8-10 reps. #3Wide-Grip Seated Cable Row: 4 sets of 10-12 reps. #Reverse Grip Smith Machine Row: 3 sets to 8-10 reps. #5Close Grip Pull Down: 3 sets 10-12 reps.</textarea>");
     }
 });
 

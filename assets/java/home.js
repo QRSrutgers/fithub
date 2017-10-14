@@ -47,8 +47,6 @@ $(document).ready(function() {
 
     progress += 100;
 
-    console.log(progress);
-
     $("#progressBar").html("<div class='progress-bar progress-bar-striped' role='progressbar' style='width:" + progress + "px;'" + "aria-valuenow='10' aria-valuemin='0' aria-valuemax='100'></div>");
 
     localStorage.setItem("WaterBar", progress);
@@ -65,11 +63,6 @@ $(document).ready(function() {
     var email = $("#email-entry").val().trim();
     var birthday = $("#age-entry").val().trim();
 
-    // Console log each of the user inputs to confirm we are receiving them
-    console.log(name);
-    console.log(email);
-    console.log(birthday);
-
     // Replaces the content in the div with the new info
     $("#name-display").html(name);
 
@@ -79,7 +72,6 @@ $(document).ready(function() {
 
     // Store all content into localStorage
     localStorage.setItem("name", name);
-    console.log("Name set: " + name);
   });
 
   // Capture Button Click for Your Hub
@@ -91,11 +83,6 @@ $(document).ready(function() {
     var cweight = $("#cweight").val().trim();
     var tweight = $("#tweight").val().trim();
     var comment = $("#comment-input").val().trim();
-
-    // Console log each of the user inputs to confirm we are receiving them
-    console.log(cweight);
-    console.log(tweight);
-    console.log(comment);
 
     // Replaces the content in the div with the new info
     $("#cweight-display").text(cweight);
@@ -166,8 +153,6 @@ $(document).ready(function() {
 
     calsLeft = calLimit -= calEaten;
 
-    console.log(calsLeft);
-
     // Replaces the content in the div with the new info
     $("#cal-eaten-display").text(sumCals);
     $("#cal-left-display").text(calsLeft);
@@ -193,11 +178,6 @@ $(document).ready(function() {
     var bodyWork = $("#bodyWork").val().trim();
     var cardio = $("#cardio").val().trim();
     var notes = $("#notesFit").val().trim();
-
-    // Console log each of the user inputs to confirm we are receiving them
-    console.log(bodyWork);
-    console.log(cardio);
-    console.log(notes)
 
     // Replaces the content in the div with the new info
     $("#body-work-display").text(bodyWork);
@@ -227,10 +207,6 @@ $(document).ready(function() {
     // Capture user inputs and store them into variables
     var nameEvent = $("#eventName").val().trim();
     var timeEvent = $("#eventTime").val().trim();
-
-    // Console log each of the user inputs to confirm we are receiving them
-    console.log(nameEvent);
-    console.log(timeEvent);
 
     // Replaces the content in the div with the new info
     $("#event-name-display").html(nameEvent);

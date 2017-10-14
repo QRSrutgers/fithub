@@ -1,46 +1,48 @@
-//On click event for page navs
-$("#nutriArrow").on("click", function() {
+$(document).ready(function() {
+
+  //On click event for page navs
+  $("#nutriArrow").on("click", function() {
     window.location.href = "nutrition.html";
-});
-//On click event for page navs
-$("#excerciseArrow").on("click", function() {
+  });
+  //On click event for page navs
+  $("#excerciseArrow").on("click", function() {
     window.location.href = "exercise.html";
-});
-//On click event for page navs
-$("#socialArrow").on("click", function() {
+  });
+  //On click event for page navs
+  $("#socialArrow").on("click", function() {
     window.location.href = "social.html";
-});
+  });
 
-function timer() {
+  function timer() {
     timerForClock = setInterval(function() {
-        var currentTime = moment().format("MMMM Do YYYY, h:mm:ss a");
+      var currentTime = moment().format("MMMM Do YYYY, h:mm:ss a");
 
-        $("#actualTimeDisplay").html(currentTime);
+      $("#actualTimeDisplay").html(currentTime);
     }, 1000);
 
-};
+  };
 
-timer();
+  timer();
 
-var progress = localStorage.getItem("WaterBar");
+  var progress = localStorage.getItem("WaterBar");
 
-if (progress == null) {
+  if (progress == null) {
     progress = 0;
-} else {
+  } else {
     progress = parseInt(progress);
-}
+  }
 
-$("#resetProgress").on("click", function() {
+  $("#resetProgress").on("click", function() {
     progress = 0;
 
     $("#progressBar").html("<div class='progress-bar progress-bar-striped' role='progressbar' style='width:" + progress + "px;'" + "aria-valuenow='10' aria-valuemin='0' aria-valuemax='100'></div>");
 
     localStorage.getItem("WaterBar", 0);
-})
+  })
 
-$("#progressBar").html("<div class='progress-bar progress-bar-striped' role='progressbar' style='width:" + progress + "px;'" + "aria-valuenow='10' aria-valuemin='0' aria-valuemax='100'></div>");
+  $("#progressBar").html("<div class='progress-bar progress-bar-striped' role='progressbar' style='width:" + progress + "px;'" + "aria-valuenow='10' aria-valuemin='0' aria-valuemax='100'></div>");
 
-$("#droplet").on("click", function(e) {
+  $("#droplet").on("click", function(e) {
     e.preventDefault();
 
     progress += 100;
@@ -50,11 +52,11 @@ $("#droplet").on("click", function(e) {
     $("#progressBar").html("<div class='progress-bar progress-bar-striped' role='progressbar' style='width:" + progress + "px;'" + "aria-valuenow='10' aria-valuemin='0' aria-valuemax='100'></div>");
 
     localStorage.setItem("WaterBar", progress);
-})
+  })
 
-// Button clicks for ALL the modals
-// Capture Button Click for Prof Hub
-$("#save-changes-profHub").on("click", function(event) {
+  // Button clicks for ALL the modals
+  // Capture Button Click for Prof Hub
+  $("#save-changes-profHub").on("click", function(event) {
     // prevent page from refreshing when form tries to submit itself
     event.preventDefault();
 
@@ -77,10 +79,11 @@ $("#save-changes-profHub").on("click", function(event) {
 
     // Store all content into localStorage
     localStorage.setItem("name", name);
-});
+    console.log("Name set: " + name);
+  });
 
-// Capture Button Click for Your Hub
-$("#save-changes-yourHub").on("click", function(event) {
+  // Capture Button Click for Your Hub
+  $("#save-changes-yourHub").on("click", function(event) {
     // prevent page from refreshing when form tries to submit itself
     event.preventDefault();
 
@@ -109,17 +112,17 @@ $("#save-changes-yourHub").on("click", function(event) {
     localStorage.setItem("cweight", cweight);
     localStorage.setItem("tweight", tweight);
     localStorage.setItem("comment", comment);
-});
+  });
 
-var sumCals = localStorage.getItem("sumCals");
+  var sumCals = localStorage.getItem("sumCals");
 
-if (sumCals == null) {
+  if (sumCals == null) {
     sumCals = 0;
-} else {
+  } else {
     sumCals = parseInt(sumCals);
-}
+  }
 
-$("#calorieLimit").on("click", function(e) {
+  $("#calorieLimit").on("click", function(e) {
     e.preventDefault();
 
     calLimit = parseInt($("#cal-limit").val().trim());
@@ -138,14 +141,14 @@ $("#calorieLimit").on("click", function(e) {
 
     localStorage.setItem("calLimitDisplay", calLimitDisplay);
 
-});
+  });
 
-var calLimit = localStorage.getItem("calLimit");
+  var calLimit = localStorage.getItem("calLimit");
 
-var calsLeft = localStorage.getItem("calsLeft");
+  var calsLeft = localStorage.getItem("calsLeft");
 
-// Capture Button Click for Nutrition Hub
-$("#save-changes-nutri").on("click", function(event) {
+  // Capture Button Click for Nutrition Hub
+  $("#save-changes-nutri").on("click", function(event) {
     // prevent page from refreshing when form tries to submit itself
     event.preventDefault();
 
@@ -154,9 +157,9 @@ $("#save-changes-nutri").on("click", function(event) {
     var calEaten = $("#cal-mod").val().trim();
 
     if (calEaten !== "") {
-        calEaten = parseInt(calEaten);
+      calEaten = parseInt(calEaten);
     } else {
-        calEaten = 0;
+      calEaten = 0;
     }
 
     sumCals += calEaten;
@@ -179,10 +182,10 @@ $("#save-changes-nutri").on("click", function(event) {
     localStorage.setItem("sumCals", sumCals);
     localStorage.setItem("calsLeft", calsLeft);
 
-});
+  });
 
-// Capture Button Click for Fitness Hub
-$("#save-changes-fit").on("click", function(event) {
+  // Capture Button Click for Fitness Hub
+  $("#save-changes-fit").on("click", function(event) {
     // prevent page from refreshing when form tries to submit itself
     event.preventDefault();
 
@@ -212,12 +215,12 @@ $("#save-changes-fit").on("click", function(event) {
     // Store all content into localStorage
     localStorage.setItem("bodyWork", bodyWork);
     localStorage.setItem("cardio", cardio);
-    localStorage.setItem("Fitness notes", notes);
+    localStorage.setItem("notes", notes);
 
-});
+  });
 
-// Capture Button Click for Prof Hub
-$("#save-changes-social").on("click", function(event) {
+  // Capture Button Click for Prof Hub
+  $("#save-changes-social").on("click", function(event) {
     // prevent page from refreshing when form tries to submit itself
     event.preventDefault();
 
@@ -240,21 +243,28 @@ $("#save-changes-social").on("click", function(event) {
 
 
     // Store all content into localStorage
-    localStorage.setItem("Event Name", nameEvent);
-    localStorage.setItem("Event Time", timeEvent);
+    localStorage.setItem("nameEvent", nameEvent);
+    localStorage.setItem("timeEvent", timeEvent);
 
-});
+  });
 
-// By default display the content from localStorage
-$("name-display").text(localStorage.getItem("name"));
-$("#cweight-display").text(localStorage.getItem("cweight"));
-$("#tweight-display").text(localStorage.getItem("tweight"));
-$("#comment-display").text(localStorage.getItem("comment"));
-$("#cal-eaten-display").text(localStorage.getItem("sumCals"));
-$("#cal-limit-display").text(localStorage.getItem("calLimitDisplay"));
-$("#cal-left-display").text(localStorage.getItem("calsLeft"));
-$("#body-work-display").text(localStorage.getItem("bodyWork"));
-$("#cardio-display").text(localStorage.getItem("cardio"));
-$("#notes-display").text(localStorage.getItem("notes"));
-$("#event-name-display").text(localStorage.getItem("nameEvent"));
-$("#event-time-display").text(localStorage.getItem("timeEvent"));
+  // By default display the content from localStorage
+  $("#name-display").text(localStorage.getItem("name"));
+  $("#cweight-display").text(localStorage.getItem("cweight"));
+  $("#tweight-display").text(localStorage.getItem("tweight"));
+  $("#comment-display").text(localStorage.getItem("comment"));
+  $("#cal-eaten-display").text(localStorage.getItem("sumCals"));
+  $("#cal-limit-display").text(localStorage.getItem("calLimitDisplay"));
+  $("#cal-left-display").text(localStorage.getItem("calsLeft"));
+  $("#body-work-display").text(localStorage.getItem("bodyWork"));
+  $("#cardio-display").text(localStorage.getItem("cardio"));
+  $("#notes-display").text(localStorage.getItem("notes")); //fix this
+  $("#event-name-display").text(localStorage.getItem("nameEvent"));
+  $("#event-time-display").text(localStorage.getItem("timeEvent"));
+
+})
+
+
+
+
+
